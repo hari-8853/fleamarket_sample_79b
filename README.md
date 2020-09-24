@@ -37,7 +37,6 @@
 |destination_first_name_kana|string|null: false|
 |destination_family_name_kana|string|null: false|
 |post_code|integer(7)|null: false|
-|area|string|null: false|
 |city|string|null: false|
 |house_number|string|
 |building_name|string|
