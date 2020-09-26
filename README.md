@@ -36,11 +36,11 @@
 |destination_family_name|string|null: false|
 |destination_first_name_kana|string|null: false|
 |destination_family_name_kana|string|null: false|
-|post_code|integer(7)|null: false|
+|post_code|string|null: false|
 |city|string|null: false|
 |house_number|string|
 |building_name|string|
-|phone_number|integer|unique: true|
+|phone_number|string|unique: true|
 |user|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
@@ -71,14 +71,13 @@
 |introduction|text|null: false|
 |price|integer|null: false|
 |brand|references|foreign_key: true|
-|item_condition|references|null: false, foreign_key: true|
-|postage_payer|references|null: false, foreign_key: true|
+|item_condition|references|null: false|
+|postage_payer|references|null: false|
 |prefecture_code|integer|null: false|
-|size|references|null: false, foreign_key: true|
-|preparation_day|references|null: false, foreign_key: true|
-|postage_type|references|null: false, foreign_key: true|
-|item_img|references|null: false, foreign_key: true|
-|category|references|null: false, foreign_key: true|
+|size|references|null: false|
+|preparation_day|references|null: false|
+|postage_type|references|null: false|
+|category|references|null: false|
 |trading_status|enum|null: false|
 |seller|references|null: false, foreign_key: true|
 |buyer|references|null: false, foreign_key: true|
@@ -99,7 +98,7 @@
 ## brands table
 |Column|Type|Options|
 |------|----|-------|
-|brand_name|string|
+|name|string|null: false|
 ### Association
 - has_many :items
 
@@ -109,12 +108,12 @@
 |url|string|null: false|
 |item|references|null: false, foreign_key: true|
 ### Association
-- belongs_to :items
+- belongs_to :item
 
 ## categories table
 |Column|Type|Options|
 |------|----|-------|
-|categorie_name|string|null: false|
+|name|string|null: false|
 |ancesty|string|null: false|
 ### Association
 - has_many :items
