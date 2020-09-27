@@ -14,7 +14,7 @@
 |post_code|string|null: false|
 |city|string|null: false|
 |house_number|string|null: false|
-|building_name|string|null: true|
+|building_name|string|
 |phone_number|string|unique: true|
 |birth_date|date|null: false|
 ### Association
@@ -49,22 +49,33 @@
 |name|string|null: false|
 |introduction|text|null: false|
 |price|integer|null: false|
-|item_condition|enum|null: false|
-|postage_payer|enum|null: false|
-|prefecture_code|string|null: false|
-|preparation_day|enum|null: false|
-|postage_type|enum|null: false|
-|category|references|foreign_key: true|
+|brand|references|foreign_key: true|
+|item_condition|references|null: false|
+|postage_payer|references|null: false|
+|preparation_day|references|null: false|
+|postage_type|references|null: false|
+|category|references|null: false, foreign_key: true|
 |trading_status|enum|null: false|
 |seller|references|null: false, foreign_key: true|
 |buyer|references|null: false, foreign_key: true|
-|deal_closed_date|timestamp|
 ### Association
 - has_many :item_images, dependent: :destroy
 - belongs_to :category
+- belongs_to_active_hash :item_condition
+- belongs_to_active_hash :preparation_day
+- belongs_to_active_hash :postage_type
+- belongs_to_active_hash :postage_payer
+- belongs_to :brand
 - belongs_to :seller, class_name: "User"
 - belongs_to :buyer, class_name: "User"
 - Gem : jp_prefecture
+
+## brands table
+|Column|Type|Options|
+|------|----|-------|
+|name|string|
+### Association
+- has_many :items
 
 ## items_imgs table
 |Column|Type|Options|
