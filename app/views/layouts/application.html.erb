@@ -10,6 +10,25 @@
   </head>
 
   <body>
+    <header class="header">
+      <div class="header__bar">
+        <div class="header__logo">
+          ロゴ
+        </div>
+        <div class="header__title">
+          FURIMA
+        </div>
+        <%= link_to "カテゴリ", root_path, class: "post" %>
+        <%= link_to "ブランド", root_path, class: "post" %>
+        <% if user_signed_in? %>
+          <%= link_to "マイページ", root_path, class: "post" %>
+        <% else %>
+          <%= link_to "ログイン", new_user_session_path, class: "post" %>
+          <%= link_to "新規登録", new_user_registration_path, class: "post" %>
+        <% end %>
+      </div>
+    </header>
+    <%= %>
     <%= yield %>
   </body>
 </html>
