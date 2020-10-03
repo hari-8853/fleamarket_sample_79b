@@ -10,7 +10,7 @@
             出品画像
             %span.require
               必須
-          %p 最大十枚までアップロードできます
+          %p 最大10枚までアップロードできます
         .sellContainer__content__box
           %ul.utputBox
             %div#imageInput
@@ -116,4 +116,10 @@
           .sellConteiner__content__commission__right
             ー
         
-          
+        .submitBtn
+          .submitBtn__sellBtn 出品する
+        .submitBtn
+          = link_to 'もどる', root_path, class: 'submitBtan__returnBtn'
+        .attentionComentBox
+          禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物
+          などの販売は犯罪であり、法律により処罰される可能性があります。また、出品をもちまして加盟店規約に同意したことになります。
