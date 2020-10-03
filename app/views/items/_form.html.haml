@@ -3,3 +3,15 @@
     .header
       .header__logo
         =link_to image_tag('logo.png',class: "header__logo__image", size: "120x33"), root_path
+    .sellContainer
+      .sellContainer__content
+        .sellTitle
+          %h3.sellTitle-text
+            出品画像
+            %span.require
+              必須
+          %p 最大十枚までアップロードできます
+        .sellContainer__content__box
+          %ul.utputBox
+            %div#imageInput
+              %i.fa.fa-camera
