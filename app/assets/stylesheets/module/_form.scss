@@ -172,9 +172,17 @@ $breakpoints: (
       align-items: center;
     }
     .submitBtn {
+      margin-top: 24px;
+      display: flex;
+      justify-content: center;
       &__sellBtn {
         @include redBox;
         height: 48px;
+        width: 310px;
+        padding: 0 24px;
+        @include mq('sp') {
+          width: 100%;
+        }
       }
       &__returnBtn {
         display: flex;
@@ -184,7 +192,7 @@ $breakpoints: (
     .attentionCommentBox {
       color: rgb(51, 51, 51);
       font-size: 12px;
-
+      margin: 24px 0;
     }
   }
 }
