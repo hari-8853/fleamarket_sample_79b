@@ -4,22 +4,66 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :ニックネーム %><br />
+    <%= f.email_field :nickname %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Eメール %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
-      <%# t.string :nickname,         null: false
-      t.string :email,            null: false, unique: true, index: true
-      t.string :password,         null: false
-      t.string :first_name,       null: false
-      t.string :family_name,      null: false
-      t.string :first_name_kana,  null: false
-      t.string :family_name_kana, null: false
-      t.integer :prefecturecode,  null: false 
-      t.string :city,             null: false
-      t.string :house_number,     null: false
-      t.string :building_name
-      t.string :phone_number,                  unique: true
-      t.date :birth_date,         null: false %>
+
+  <div class="field">
+      <%= f.label :氏（全角） %><br />
+    <%= f.email_field :family_name %>
+
+  </div>
+
+  <div class="field">
+      <%= f.label :名（全角） %><br />
+    <%= f.email_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :氏カナ（全角） %><br />
+    <%= f.email_field :first_name_kana %>
+  </div>
+
+  <div class="field">
+    <%= f.label :名カナ（全角） %><br />
+    <%= f.email_field :family_name_kana %>
+  </div>
+<%#
+  <div class="field">
+    <%= f.label :都道府県 %>
+    <%# <br /> %>
+    <%# <%= f.email_field :prefecturecode %>
+  <%# </div> %> 
+
+  <div class="field">
+    <%= f.label :市区町村 %><br />
+    <%= f.email_field :city %>
+  </div>
+
+  <div class="field">
+    <%= f.label :番地 %><br />
+    <%= f.email_field :house_number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :建物名 %><br />
+    <%= f.email_field :building_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :電話 %><br />
+    <%= f.email_field :phone_number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :生年月日 %><br />
+    <%= f.email_field :birth_date %>
+  </div>
 
   <div class="field">
     <%= f.label :password %>
