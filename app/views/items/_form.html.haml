@@ -2,17 +2,17 @@
   %section.main__block
     .header
       .header__logo
-        =link_to image_tag('logo.png',class: "header__logo__image", size: "120x33"), root_path
+        =link_to image_tag('logo.png',class: "header__logo__image", size: "185x49"), root_path
     .sellContainer
       .sellContainer__content
         .sellTitle
-          %h3.sellTitle-text
+          %h3.sellTitle__text
             出品画像
             %span.require
               必須
           %p 最大10枚までアップロードできます
         .sellContainer__content__box
-          %ul.utputBox
+          %ul.outputBox
             %div#imageInput
               %i.fa.fa-camera
       .sellContainer__content
@@ -31,7 +31,7 @@
         .sellContainer__content__description
           商品説明
 
-      .sellContiner__content
+      .sellContainer__content
         %h3.sellSubHead
           商品の詳細
         .sellTitle
@@ -61,65 +61,66 @@
             仮のボックス
           %i.fa.fa-chevron-down
         
-    .sellContainer__content
-      %h3.sellSubHead
-        配送について
-      .sellTitle
-        %h3.sellTitle__text
-          配送料の負担
-          %span.require
-            必須
-        .sellCollectiuonSelect
-          .sellCollection__label
-            仮のセレクトボックス
-          %i.fa.fa-chevron-down
-      .sellTitle
-        %h3.sellTitle__text
-          配送の方法
-          %span.require
-            必須
-        .sellCollectiuonSelect
-          .sellCollectionSelect__label
-            仮のセレクトボックス
-          %i.fa.fa-chevron-down
-      .selTitle
-        %h3.selloTitle__text
-          配送までの日数
-          %span.require
-            必須
-        .sellCollectionSelect
-          .sellCollectionSelect__label
-            仮のセレクトボックス
-          %i.fa.fa-chevron-down
-
-    .sellContainer__content
-      %h3.sellSubHead
-        価格 (¥300~9,999,999)
-      .sellContainer__content__price
+      .sellContainer__content
+        %h3.sellSubHead
+          配送について
         .sellTitle
           %h3.sellTitle__text
-            販売価格
-            %supan.require
+            配送料の負担
+            %span.require
               必須
-        .sellContainer__content__price__form
-          ¥
-          .sellConteiner__content__price__box
-            0
+          .sellCollectionSelect
+            .sellCollectionSelect__label
+              仮のセレクトボックス
+            %i.fa.fa-chevron-down
+        .sellTitle
+          %h3.sellTitle__text
+            配送の方法
+            %span.require
+              必須
+          .sellCollectionSelect
+            .sellCollectionSelect__label
+              仮のセレクトボックス
+            %i.fa.fa-chevron-down
+        .sellTitle
+          %h3.sellTitle__text
+            配送までの日数
+            %span.require
+              必須
+          .sellCollectionSelect
+            .sellCollectionSelect__label
+              仮のセレクトボックス
+            %i.fa.fa-chevron-down
+
+      .sellContainer__content
+        %h3.sellSubHead
+          価格 (¥300~9,999,999)
+        .sellContainer__content__price
+          .sellContainer__content__price__title
+            %h3.sellTitle__text
+              販売価格
+              %supan.require
+                必須
+          .sellContainer__content__price__form
+            .sellContainer__content__price__form__symbol
+              ¥
+            .sellContainer__content__price__form__box
+              0
         .sellContainer__content__commission
           .sellContainer__content__commission__left
             販売手数料 (10%)
           .sellContainer__content__commission__right
             ー
-        .sellConteiner__content__commission
-          .sellConteiner__content__commission__left
+        .sellContainer__content__commission
+          .sellContainer__content__commission__left
             販売利益
-          .sellConteiner__content__commission__right
+          .sellContainer__content__commission__right
             ー
         
         .submitBtn
           .submitBtn__sellBtn 出品する
         .submitBtn
-          = link_to 'もどる', root_path, class: 'submitBtan__returnBtn'
-        .attentionComentBox
+          = link_to 'もどる', root_path, class: 'submitBtn__returnBtn'
+        .attentionCommentBox
           禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物
           などの販売は犯罪であり、法律により処罰される可能性があります。また、出品をもちまして加盟店規約に同意したことになります。
