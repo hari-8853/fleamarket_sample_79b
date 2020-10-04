@@ -1,3 +1,20 @@
+@mixin baseBox {
+  border: solid 1px #cccccc;
+  border-radius: 4px;
+  height: 48px;
+  padding: 0 16px;
+  margin:16px 0 20px 0;
+  display: flex;
+  align-items: center;
+}
+@mixin redBox {
+  background-color: red;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
 .header {
   width: 100vw;
   height: 128px;
@@ -27,18 +44,11 @@
         line-height: 1.4em;
         display: flex;
         .require {
+          @include redBox;
           font-size: 12px;
-          background-color: red;
-          color: white;
           width: 32px;
           padding: 0 4px;
           margin-left: 8px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          font-style: normal;
-          font-weight: 600;
-          line-height: 1.4;
         }
         .arbitrary {
           background-color: #bfbfbf;
@@ -73,12 +83,7 @@
       }
     }
     &__name {
-      border: solid 1px #cccccc;
-      border-radius: 4px;
-      height: 48px;
-      padding: 0 16px;
-
-      margin:16px 0 20px 0;
+      @include baseBox;
     }
     &__description {
       border: solid 1px #ccc;
@@ -91,15 +96,11 @@
     .sellCollectionSelect {
       position: relative;
       .sellCollectionSelect__label {
-        height: 48px;
-        margin-top: 16px;
-        border: solid 1px #ccc;
-        border-radius: 4px;
+        @include baseBox;
         font-size: 16px;
-        padding: 0 56px 0 16px;
-        margin-bottom: 16px;
-        display: flex;
-        align-items: center;
+        padding-right: 56px;
+        margin: 16px, 0;
+
       }
       .fa.fa-chevron-down {
         bottom: 0;
@@ -127,10 +128,8 @@
           line-height: 48px;
         }
         &__box {
-          border: 1px solid #ccc;
-          border-radius: 4px;
-          height: 48px;
-          padding: 0 16px;
+          @include baseBox;
+          margin: 0;
           line-height: 48px;
           width: calc(100vw - 70vw);
         }
@@ -145,12 +144,7 @@
     }
     .submitBtn {
       &__sellBtn {
-        background-color: red;
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 4px;
+        @include redBox;
         height: 48px;
       }
       &__returnBtn {
