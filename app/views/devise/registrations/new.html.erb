@@ -5,7 +5,7 @@
 
   <div class="field">
     <%= f.label :ニックネーム %><br />
-    <%= f.email_field :nickname %>
+    <%= f.text_field :nickname %>
   </div>
 
   <div class="field">
@@ -15,23 +15,23 @@
 
   <div class="field">
       <%= f.label :氏（全角） %><br />
-    <%= f.email_field :family_name %>
+    <%= f.text_field :family_name %>
 
   </div>
 
   <div class="field">
       <%= f.label :名（全角） %><br />
-    <%= f.email_field :first_name %>
+    <%= f.text_field :first_name %>
   </div>
 
   <div class="field">
     <%= f.label :氏カナ（全角） %><br />
-    <%= f.email_field :first_name_kana %>
+    <%= f.text_field :first_name_kana %>
   </div>
 
   <div class="field">
     <%= f.label :名カナ（全角） %><br />
-    <%= f.email_field :family_name_kana %>
+    <%= f.text_field :family_name_kana %>
   </div>
 <%#
   <div class="field">
@@ -42,27 +42,27 @@
 
   <div class="field">
     <%= f.label :市区町村 %><br />
-    <%= f.email_field :city %>
+    <%= f.text_field :city %>
   </div>
 
   <div class="field">
     <%= f.label :番地 %><br />
-    <%= f.email_field :house_number %>
+    <%= f.text_field :house_number %>
   </div>
 
   <div class="field">
     <%= f.label :建物名 %><br />
-    <%= f.email_field :building_name %>
+    <%= f.text_field :building_name %>
   </div>
 
   <div class="field">
     <%= f.label :電話 %><br />
-    <%= f.email_field :phone_number %>
+    <%= f.telephone_field :phone_number %>
   </div>
 
   <div class="field">
     <%= f.label :生年月日 %><br />
-    <%= f.email_field :birth_date %>
+    <%= f.text_field :birth_date %>
   </div>
 
   <div class="field">
