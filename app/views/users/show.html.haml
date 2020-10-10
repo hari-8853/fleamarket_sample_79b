@@ -1,0 +1,16 @@
+.userMyPage
+  .userMyPage__main
+    .profileIcon
+      %a.profileIcon__link(href="#")
+        .profileIcon__link__img
+          = image_tag 'member_photo_noimage_thumb.png', :size => '60x60'
+        %h2.profileIcon__link__userName.bold
+          user名
+        .profileIcon__link__number
+          .profileIcon__link__number__evaluations
+            評価 
+            %span.bold 0
+          .profileIcon__link__number__listings
+            出品数
+            %span.bold 0
+
