@@ -3,27 +3,68 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-<div class="field">
-    <%= f.label :ニックネーム %><br />
+  <div class="field">
+    <%= f.label :ニックネーム %>必須<br />
     <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
   </div>
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :メールアドレス %>必須<br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label :パスワード %>必須
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
-
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :パスワード（確認） %>必須<br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
+  <div>
+    本人確認
+  </div>
+  <div class="field">
+    <%= f.label :お名前（全角） %>必須<br />
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", placeholder: "例）山田" %>
+    <%= f.text_field :family_name, autofocus: true, autocomplete: "family_name", placeholder: "例）太郎" %>
+  </div>
+  <div class="field">
+    <%= f.label :お名前（全角） %>必須<br />
+    <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana", placeholder: "例）ヤマダ" %>
+    <%= f.text_field :family_name_kana, autofocus: true, autocomplete: "family_name_kana", placeholder: "例）タロウ" %>
+  </div>
+    <div class="field">
+    <%= f.label :生年月日 %>必須<br />
+    <%# <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana", placeholder: "例）ヤマダ" %> %>
+    <%# <%= f.text_field :family_name_kana, autofocus: true, autocomplete: "family_name_kana", placeholder: "例）タロウ" %> %>
+  </div>
+  <div>
+  住所
+  </div>
+  <div class="field">
+    <%= f.label :都道府県 %>必須<br />
+    <%# <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana", placeholder: "例）ヤマダ" %> %>
+  </div>
+  <div class="field">
+    <%= f.label :市区町村 %>必須<br />
+    <%= f.text_field :city, autofocus: true, autocomplete: "city", placeholder: "例）渋谷区" %>
+  </div>
+    <div class="field">
+    <%= f.label :番地 %>必須<br />
+    <%= f.text_field :house_number, autofocus: true, autocomplete: "family_name_kana", placeholder: "例）道玄坂２丁目２３−１２" %>
+  </div>
+      <div class="field">
+    <%= f.label :マンション・ビル名 %><br />
+    <%= f.text_field :building_name, autofocus: true, autocomplete: "building_name", placeholder: "例）フォンティスビル ７F" %>
+  </div>
+  <div class="field">
+    <%= f.label :電話番号 %><br />
+    <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number", placeholder: "例) 05031873522 " %>
+  </div>
+  <div>携帯電話番号</div>
 
   <div class="actions">
     <%= f.submit "Sign up" %>
