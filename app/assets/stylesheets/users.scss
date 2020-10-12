@@ -88,5 +88,49 @@ span {
         }
       }
     }
+    .purchaseItem {
+      width: 700px;
+      &__title {
+        margin-top: 40px;
+        
+        height: 72px;
+        padding: 0 16px;
+        line-height: 72px;
+        background-color: #fafafa;
+      }
+      &__itemTabs {        
+        width: 100%;
+        .itemTabMenu {
+          display: block;
+          float: left;
+          width: 350px;
+          height: 76px;
+          background-color:#EEE;
+          cursor: pointer;
+          font-weight: bold;
+          text-align: center;
+          line-height: 76px;
+        }
+        input[name="itemTab"] {
+          display: none;
+        }
+        .tabContains{
+          padding-top: 76px;
+          display:none;
+          border-bottom: 1px solid #EEE;
+        }
+        #tradings:checked + .itemTabMenu,
+        #pastTransactions:checked + .itemTabMenu {
+          background-color:white;
+          height: 74px;
+          border-top: 2px solid red ;
+          box-sizing: border-box;
+        }
+        #tradings:checked ~ #tabContainsTradings,
+        #pastTransactions:checked ~ #tabContainsPastTransactions {
+          display: block;
+        }
+      }
+    }
   }
 }
