@@ -14,3 +14,18 @@
             出品数
             %span.bold 0
 
+    .notificationTodo
+      .notificationTodo__tabs
+        %input#notice.notificationTodo__tabs__notice{checked: "checked", name: "tabItem", type: "radio"}/
+        %label.tabMenu{:for => "notice"} お知らせ
+        %input#todo.notificationTodo__tabs__todo{name: "tabItem", type: "radio"}/
+        %label.tabMenu{:for => "todo"} やる事リスト
+
+        #tabContainsNotice.tabContains
+          .tabCiontainsDescription__content.notingImage
+            現在お知らせはありません
+          
+        #tabContainsTodo.tabContains
+          .tabContainsDescription__task.notingImage
+            現在やることはありません
+

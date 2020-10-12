@@ -1,6 +1,10 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.notingImage {
+  background-image: url(furima-logo-gray.png) 0 0 no-repeat;
+  background-position: center 40px;
+  background-size: 78px 85px;
+  text-align: center;
+  padding:160px 0 60px; 
+}
 span {
   margin-left: 8px;
 }
@@ -45,6 +49,42 @@ span {
           &__listings {
             margin-left: 14px;
           }
+        }
+      }
+    }
+    .notificationTodo {
+      width: 100%;
+      &__tabs {
+        width: 700px;
+        .tabMenu {
+          display: block;
+          float: left;
+          width: 350px;
+          height: 76px;
+          background-color:#EEE;
+          cursor: pointer;
+          font-weight: bold;
+          text-align: center;
+          line-height: 76px;
+        }
+        input[name="tabItem"] {
+          display: none;
+        }
+        .tabContains{
+          padding-top: 76px;
+          display:none;
+          border-bottom: 1px solid #EEE;
+        }
+        #notice:checked + .tabMenu,
+        #todo:checked + .tabMenu {
+          background-color:white;
+          height: 74px;
+          border-top: 2px solid red ;
+          box-sizing: border-box;
+        }
+        #notice:checked ~ #tabContainsNotice,
+        #todo:checked ~ #tabContainsTodo {
+          display: block;
         }
       }
     }
