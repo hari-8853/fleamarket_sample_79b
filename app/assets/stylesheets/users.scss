@@ -9,6 +9,7 @@ height: 100px;
 
 
 .parentField {
+  min-height: 100vh;
   display: block;
   justify-content: center;
   align-items: center; 
@@ -42,9 +43,10 @@ height: 100px;
   margin-bottom: 30px;
 }
 
-.h3 {
+footer{
   display: flex;
   justify-content: center;
   align-items: center;
   text-decoration: none;
+  text-align: center;
 }

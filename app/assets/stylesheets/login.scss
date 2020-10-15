@@ -6,6 +6,7 @@
   color: #333;
   position: relative;
   height: vh-100px;
+  min-height: 100vh;
   font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
   .loginChildField {
     width: 100px;
@@ -17,6 +18,11 @@
     bottom :0;
     margin:  auto;
   }
+}
+
+label {
+  width: 200px;
+  margin-bottom: 0;
 }
 
 .login {
@@ -33,5 +39,9 @@
 }
 
 h3 {
-  margin-top: auto;
+  text-align: center;
+  padding: 0;
+  position: absolute;
+  bottom: 0;
+  margin: auto;
 }
