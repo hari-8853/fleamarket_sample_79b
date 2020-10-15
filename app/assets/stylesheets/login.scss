@@ -1,0 +1,37 @@
+.loginParentField {
+  flex-flow: flex;
+  display: block;
+  justify-content: center;
+  align-items: center; 
+  color: #333;
+  position: relative;
+  height: vh-100px;
+  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+  .loginChildField {
+    width: 100px;
+    height: vh-100px-100px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom :0;
+    margin:  auto;
+  }
+}
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  background-color: #3CCACE;
+  font-size: 15px;
+  color: white;
+  border: none;
+  height: 50px;
+  width: 100px;
+  margin-top: 50px;
+}
+
+h3 {
+  margin-top: auto;
+}

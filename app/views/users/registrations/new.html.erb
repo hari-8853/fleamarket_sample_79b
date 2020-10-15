@@ -1,0 +1,91 @@
+
+
+<h2><img src="/assets/logo-furima.svg" alt="">　新規登録</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "users/shared/error_messages", resource: resource %>
+
+  <div class="parentField">
+    <div class="childField">
+      <div class="nickname">
+        <%= f.label :ニックネーム %><br />
+        <%= f.text_field :nickname, placeholder: "必須" %>
+      </div>
+
+      <div class="email">
+        <%= f.label :メールアドレス %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "必須" %>
+      </div>
+
+      <div class="password">
+        <%= f.label :パスワード %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: "必須" %>
+      </div>
+
+      <div class="password">
+        <%= f.label :パスワード（確認用） %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "必須" %>
+      </div>
+
+      <div class="family_name">
+        <%= f.label :姓 %><br />
+        <%= f.text_field :family_name, placeholder: "必須" %>
+      </div>
+
+      <div class="first_name">
+        <%= f.label :名 %><br />
+        <%= f.text_field :first_name, placeholder: "必須" %>
+      </div>
+
+      <div class="family_name_kana">
+        <%= f.label :姓（かな） %><br />
+        <%= f.text_field :family_name_kana, placeholder: "必須" %>
+      </div>
+
+      <div class="first_name_kana">
+        <%= f.label :名（かな） %><br />
+        <%= f.text_field :first_name_kana, placeholder: "必須" %>
+      </div>
+
+
+      <div class="post_code">
+        <%= f.label :郵便番号 %><br />
+        <%= f.text_field :post_code, placeholder: "必須" %>
+      </div>
+
+      <div class="city">
+        <%= f.label :都道府県 %><br />
+        <%= f.text_field :city, placeholder: "必須" %>
+      </div>
+
+      <div class="house_number">
+        <%= f.label :以下住所 %><br />
+        <%= f.text_field :house_number, placeholder: "必須" %>
+      </div>
+
+      <div class="building_name">
+        <%= f.label :建物名 %><br />
+        <%= f.text_field :building_name %>
+      </div>
+
+      <div class="phone_number">
+        <%= f.label :電話番号 %><br />
+        <%= f.text_field :phone_number, placeholder: "必須" %>
+      </div>
+
+      <div class="birth_date">
+        <%= f.label :生年月日 %><br />
+        <%= f.date_field :birth_date, placeholder: "必須" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Sign up", class: "submit" %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<h3><%= render "users/shared/links" %><h3>
