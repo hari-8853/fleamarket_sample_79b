@@ -22,7 +22,10 @@ class ApplicationController < ActionController::Base
       :family_name,
       :first_name_kana,
       :family_name_kana,
-      :birth_date, :city,
+      :birth_date,
+      :post_code,
+      :prefecture_code,
+      :city,
       :house_number,
       :building_name,
       :phone_number

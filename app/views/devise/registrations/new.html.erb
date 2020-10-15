@@ -1,3 +1,4 @@
+<script type="text/javascript" src="//jpostal-1006.appspot.com/jquery.jpostal.js"></script>
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -44,8 +45,12 @@
   住所
   </div>
   <div class="field">
+    <%= f.label :postal_code %>必須<br />
+    <%= f.text_field :post_code, autocomplete: 'post_code', placeholder: '0000000' %>
+  </div>
+  <div class="field">
     <%= f.label :都道府県 %>必須<br />
-    <%# <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana", placeholder: "例）ヤマダ" %> %>
+    <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, { prompt: '選択してください' } %>
   </div>
   <div class="field">
     <%= f.label :市区町村 %>必須<br />
