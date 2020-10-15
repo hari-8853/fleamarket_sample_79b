@@ -1,9 +1,11 @@
 .notingImage {
-  background-image: url(furima-logo-gray.png) 0 0 no-repeat;
+  background-image: url(mini_logo_blue.png) ;
   background-position: center 40px;
   background-size: 78px 85px;
   text-align: center;
   padding:160px 0 60px; 
+  background-repeat: no-repeat;
+  color: #cccccc;
 }
 span {
   margin-left: 8px;
@@ -14,7 +16,9 @@ span {
 .userMyPage {
   width: 100vw;
   display: flex;
+  flex-direction: row-reverse;
   justify-content: center;
+  background-color: #f8f8f8;
   &__main {
     width: 700px;
     .profileIcon {
@@ -74,6 +78,7 @@ span {
           padding-top: 76px;
           display:none;
           border-bottom: 1px solid #EEE;
+          background-color: white;
         }
         #notice:checked + .tabMenu,
         #todo:checked + .tabMenu {
@@ -118,6 +123,7 @@ span {
           padding-top: 76px;
           display:none;
           border-bottom: 1px solid #EEE;
+          background-color: white;
         }
         #tradings:checked + .itemTabMenu,
         #pastTransactions:checked + .itemTabMenu {
@@ -133,4 +139,54 @@ span {
       }
     }
   }
+  &__side {
+    margin-right: 40px;
+    .myPageNav {
+      &__list {
+        margin-top: 10px;
+        &__item {
+          list-style: none;
+          width: 248px;
+          height: 48px;
+          background-color: white;
+          border-top: 1px solid #eee;
+          &__link {
+            color: #333;
+            display: block;
+            font-size: 14px;
+            line-height: 16px;
+            padding: 16px;
+            text-decoration: none;
+            position: relative;
+            
+            .fa-angle-right {
+              position: absolute;
+              right: 16px;
+              top: 16px;
+              color: lightgray;
+              font-size: 18px;
+            }
+          }
+        }
+        &__item:hover {
+          background-color: #fafafa;
+        }
+        &__item:hover .fa-angle-right {
+            position: absolute;
+            color: black;
+            right: 10px;
+            top: 16px;
+          }
+      }
+      &__head {
+        margin-top: 40px;
+        h2 {
+          font-weight: bold;
+          font-size: 14px;
+        }
+      }
+      
+    }
+  }
 }
+
