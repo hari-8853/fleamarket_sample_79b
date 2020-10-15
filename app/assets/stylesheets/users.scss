@@ -29,6 +29,16 @@ height: 100px;
   }
 }
 
+.labelRequire {
+  background-color: red;
+  color: white;
+  border-radius: 4px;
+  text-align: center;
+  float: left;
+  display: block;
+  border: 1px solid red;
+}
+
 .submit {
   display: flex;
   justify-content: center;
