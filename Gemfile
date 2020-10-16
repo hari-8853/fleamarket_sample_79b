@@ -65,3 +65,4 @@ end
 gem 'devise'
 gem 'jp_prefecture'
 gem 'jquery-rails'
+gem 'rails-i18n'
