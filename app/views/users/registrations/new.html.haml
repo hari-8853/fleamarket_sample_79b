@@ -6,14 +6,13 @@
   .parentField
     .childField
       .nickname
-        = f.label :ニックネーム
-        %br/
-        %span.labelRequire 必須
+        = f.label :ユーザー名 
+        %p.labelRequire 必須 
         = f.text_field :nickname
       .email
         = f.label :メールアドレス
         %br/
-        %span.labelRequire 必須
+        %p.labelRequire 必須
         = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "必須"
       .password
         = f.label :パスワード
@@ -21,47 +20,49 @@
           %em
             (#{@minimum_password_length} characters minimum)
         %br/
-        %span.labelRequire 必須
+        %p.labelRequire 必須
         = f.password_field :password, autocomplete: "new-password", placeholder: "必須"
       .password
         = f.label :パスワード（確認用）
         %br/
-        %span.labelRequire 必須
+        %p.labelRequire 必須
         = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "必須"
-      .family_name
-        = f.label :姓
-        %br/
-        %span.labelRequire 必須
-        = f.text_field :family_name
-      .first_name
-        = f.label :名
-        %br/
-        %span.labelRequire 必須
-        = f.text_field :first_name
-      .family_name_kana
-        = f.label :姓（かな）
-        %br/
-        %span.labelRequire 必須
-        = f.text_field :family_name_kana
-      .first_name_kana
-        = f.label :名（かな）
-        %br/
-        %span.labelRequire 必須
-        = f.text_field :first_name_kana
+      .name
+        .family_name
+          = f.label :姓
+          %br/
+          %p.labelRequire 必須
+          = f.text_field :family_name
+        .first_name
+          = f.label :名
+          %br/
+          %p.labelRequire 必須
+          = f.text_field :first_name
+      .nameKana
+        .family_name_kana
+          = f.label :姓（かな）
+          %br/
+          %p.labelRequire 必須
+          = f.text_field :family_name_kana
+        .first_name_kana
+          = f.label :名（かな）
+          %br/
+          %p.labelRequire 必須
+          = f.text_field :first_name_kana
       .post_code
         = f.label :郵便番号
         %br/
-        %span.labelRequire 必須
+        %p.labelRequire 必須
         = f.text_field :post_code
       .city
         = f.label :都道府県
         %br/
-        %span.labelRequire 必須
+        %p.labelRequire 必須
         = f.text_field :city
       .house_number
         = f.label :以下住所
         %br/
-        %span.labelRequire 必須
+        %p.labelRequire 必須
         = f.text_field :house_number
       .building_name
         = f.label :建物名
@@ -70,12 +71,12 @@
       .phone_number
         = f.label :電話番号
         %br/
-        %span.labelRequire 必須
+        %p.labelRequire 必須
         = f.text_field :phone_number
       .birth_date
         = f.label :生年月日
         %br/
-        %span.labelRequire 必須
+        %p.labelRequire 必須
         = f.date_field :birth_date
       .actions
         = f.submit "Sign up", class: "submit"
