@@ -1,0 +1,8 @@
+.userMyPage
+  .userMyPage__main
+    .settingContainer
+      .settingContainer__logoutBtn
+        =link_to "ログアウト", destroy_user_session_path, method: :delete
+
+
+  = render "users/user-navi"

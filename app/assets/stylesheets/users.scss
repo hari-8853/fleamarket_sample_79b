@@ -19,7 +19,9 @@ span {
   flex-direction: row-reverse;
   justify-content: center;
   background-color: #f8f8f8;
+  padding-top: 40px;
   &__main {
+    padding: 0 0 40px;
     width: 700px;
     .profileIcon {
       padding: 20px;
@@ -141,9 +143,9 @@ span {
   }
   &__side {
     margin-right: 40px;
+    padding: 0 0 40px;
     .myPageNav {
       &__list {
-        margin-top: 10px;
         &__item {
           list-style: none;
           width: 248px;
@@ -190,3 +192,19 @@ span {
   }
 }
 
+// ログアウトボタン
+.settingContainer {
+  padding: 64px;
+  background-color: white;
+  &__logoutBtn {
+    display: flex;
+    justify-content: center;
+    a {
+      text-decoration: none;
+      @include redBox;
+      width: 318px;
+      height: 48px;
+      border: solid 1px #cccccc;
+    }
+  }
+}
