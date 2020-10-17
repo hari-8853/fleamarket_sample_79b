@@ -103,7 +103,7 @@ describe User do
     end
 
     it 'is invalid too long a password' do
-      user = build(:user, password: 'testtoolong128testtesttoolong128testtesttoolong128testtesttoolong128testtesttoolong128testtesttoolong128testtesttoolong128testtesttoolong128testtesttoolong128testtesttoolong128testtesttoolong128testtesttoolong128testtesttoolong128testtesttoolong128testtesttoolong128testtesttoolong128testtesttoolong128test')
+      user = build(:user, password: 'testtoolong128testtoolong128testtoolong128testtoolong128testtoolong128testtoolong128testtoolong128testtoolong128testtoolong128testtoolong128')
       user.valid?
       expect(user.errors[:password]).to include("は128文字以内で入力してください")
     end
