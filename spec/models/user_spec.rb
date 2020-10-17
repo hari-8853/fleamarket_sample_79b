@@ -19,7 +19,7 @@ describe User do
         # phone_number: "08000000000"
       )
       user.valid?
-      expect(user.errors[:nickname]).to include("can't be blank")
+      expect(user.errors[:nickname]).to include("を入力してください")
     end
   end
 end
