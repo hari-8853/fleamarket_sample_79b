@@ -84,7 +84,7 @@ describe User do
       expect(user.errors[:house_number]).to include("を入力してください")
     end
 
-    it "is valid with more than 7 charactors in password" do
+    it "is valid with more than 7 characters in password" do
       user = build(:user, password: "1234567", password_confirmation: "1234567")
       expect(user).to be_valid
     end
