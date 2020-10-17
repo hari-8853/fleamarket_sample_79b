@@ -89,6 +89,6 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|ancesty|string|
+|ancesty|string|null: false|
 ### Association
 - has_many :items
