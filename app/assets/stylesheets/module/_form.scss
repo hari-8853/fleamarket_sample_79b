@@ -1,0 +1,170 @@
+
+
+.header {
+  width: 100vw;
+  height: 128px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f3f0f0;
+  @include mq('sp') {
+    height: 56px;
+  }
+  &__logo {
+    &__image {
+      height: 49px;
+      width: 185px;
+      @include mq('sp') {
+        height: 33px;
+        width: 120px;
+      }
+    }
+  }
+}
+
+.sellContainer {
+  max-width: 700px;
+  margin: 0px auto;
+  width: 100%;
+
+  &__content {
+    padding: 40px;
+    @include mq('sp') {
+      padding: 16px;
+    }
+    .sellSubHead {
+      color: rgb(136, 136, 136);
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+    .sellTitle {
+      &__text {
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.4em;
+        display: flex;
+        .require {
+          @include redBox;
+          font-size: 12px;
+          width: 32px;
+          padding: 0 4px;
+          margin-left: 8px;
+        }
+        .arbitrary {
+          background-color: #bfbfbf;
+          color: #fff;
+        }
+      }
+      p {
+        margin-top: 16px;
+        font-size: 14px;
+      }
+    }
+    &__box {
+      height: 112px;
+      padding: 0 4px;
+      margin-top: 8px;
+      .outputBox {
+        place-content: center;
+        align-items: center;
+        background-color: rgb(245, 245, 245);
+        border: 1px dashed rgb(204, 204, 204);
+        cursor: pointer;
+        display: flex;
+        height: 100%;
+        flex-wrap: wrap;
+        #imageInput {
+          .fa.fa-camera {
+            height: 24px;
+            width: 24px;
+            padding-bottom: 4px;
+          }
+        }
+      }
+    }
+    &__name {
+      @include baseBox;
+    }
+    &__description {
+      border: solid 1px #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+      padding: 13px 16px;
+      margin-top: 16px;
+      height: 126px;
+    }
+    .sellCollectionSelect {
+      position: relative;
+      .sellCollectionSelect__label {
+        @include baseBox;
+        font-size: 16px;
+        padding-right: 56px;
+        margin: 16px, 0;
+
+      }
+      .fa.fa-chevron-down {
+        bottom: 0;
+        margin: auto;
+        pointer-events: none;
+        position: absolute;
+        right: 16px;
+        top: 0;
+        line-height: 48px;
+      }
+    }
+    &__price {
+      display: flex;
+      justify-content: space-between;
+      &__title {
+        display: flex;
+        margin-right: auto;
+        align-items: center;
+      }
+      &__form {
+        display: flex;
+        &__symbol {
+          margin-right: 8px;
+          font-size: 14px;
+          line-height: 48px;
+        }
+        &__box {
+          @include baseBox;
+          margin: 0;
+          line-height: 48px;
+          width: calc(100vw - 70vw);
+        }
+      }
+    }
+    &__commission {
+      display: flex;
+      justify-content: space-between;
+      height: 54px;
+      padding: 4px 0;
+      align-items: center;
+    }
+    .submitBtn {
+      margin-top: 24px;
+      display: flex;
+      justify-content: center;
+      &__sellBtn {
+        @include redBox;
+        height: 48px;
+        width: 310px;
+        padding: 0 24px;
+        @include mq('sp') {
+          width: 100%;
+        }
+      }
+      &__returnBtn {
+        display: flex;
+        justify-content: center;
+      }
+    }
+    .attentionCommentBox {
+      color: rgb(51, 51, 51);
+      font-size: 12px;
+      margin: 24px 0;
+    }
+  }
+}
+
