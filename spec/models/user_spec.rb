@@ -36,10 +36,22 @@ describe User do
       expect(user.errors[:first_name]).to include("を入力してください")
     end
 
+    it "is invalid with a first_name by Half-width alphanumeric characters" do
+      user = build(:user, first_name: "kotaro")
+      user.valid?
+      expect(user.errors[:first_name]).to include("は、全角で入力して下さい")
+    end
+
     it "is invalid without a family_name" do
       user = build(:user, family_name: "")
       user.valid?
       expect(user.errors[:family_name]).to include("を入力してください")
+    end
+
+    it "is invalid with a family_name by Half-width alphanumeric characters" do
+      user = build(:user, family_name: "hurima")
+      user.valid?
+      expect(user.errors[:family_name]).to include("は、全角で入力して下さい")
     end
 
     it "is invalid without a first_name_kana" do
@@ -48,10 +60,22 @@ describe User do
       expect(user.errors[:first_name_kana]).to include("を入力してください")
     end
 
+    it "is invalid with a first_name_kana by Half-width alphanumeric characters and Kanji" do
+      user = build(:user, first_name_kana: "小太郎")
+      user.valid?
+      expect(user.errors[:first_name_kana]).to include("は、全角カナで入力して下さい")
+    end
+
     it "is invalid without a family_name_kana" do
       user = build(:user, family_name_kana: "")
       user.valid?
       expect(user.errors[:family_name_kana]).to include("を入力してください")
+    end
+
+    it "is invalid with a family_name_kana by Half-width alphanumeric characters and Kanji" do
+      user = build(:user, family_name_kana: "小太郎")
+      user.valid?
+      expect(user.errors[:family_name_kana]).to include("は、全角カナで入力して下さい")
     end
 
     it "is invalid without a birth_date" do
