@@ -4,7 +4,7 @@
       .header__logo
         =link_to image_tag('logo.png',class: "header__logo__image"), root_path
     .sellContainer
-      = form_with model: @item do |f|
+      = form_with model: @item,url: items_path,local: true do |f|
         .sellContainer__content
           .sellTitle
             %h3.sellTitle__text
@@ -15,10 +15,11 @@
           .sellContainer__content__box
             %ul.outputBox
               %div#imageInput
-                = f.fields_for :item_images do |image|
-                  = image.label :url, id: 'image-Input__ladel' do
-                    = image.file_field :url, accept: "image/*", class: "js-file", date: {index: image.index}, style: 'display: none;'
+                = f.fields_for :image do |image|
+                  = image.label :src, id: 'image-Input__ladel' do
+                    = image.file_field :src, accept: "image/*", class: "js-file", date: {index: image.index}, style: 'display: none;'
                     %i.fa.fa-camera
+                    = @item.errors.full_messages_for(:images)[0]
         .sellContainer__content
           .sellTitle
             %h3.sellTitle__text
@@ -26,6 +27,7 @@
               %supan.require
                 必須
           = f.text_field :name, class: "sellContainer__content__name", maxlength: '40', placeholder:"40字まで"
+          = @item.errors.full_messages_for(:name)[0]
           .sellTitle
             %h3.sellTitle__text
               商品の説明
@@ -42,18 +44,16 @@
               %span.require
                 必須
           .sellCollectionSelect
-            = form_with model: @categories do |form|
-              = f.text_field :name, class: "sellCollectionSelect__label"
-              /カテゴリ実装で多段に変更
-              選択してください
-              %i.fa.fa-chevron-down
+            = f.collection_select :category_id, Category.all, :id, :name, {prompt: "選択してください"}, {class: 'sellCollectionSelect__label'}
+            = @item.errors.full_messages_for(:category_id)[0]
+            %i.fa.fa-chevron-down
           .sellTitle
             %h3.sellTitle__text
               ブランド
               %supan.require.arbitrary
                 任意
           .sellCollectionSelect
-            = f.text_field :brand, class: "sellCollectionSelect__label", placeholder:"例）シャネル"
+            = f.text_field :brand_id, class: "sellCollectionSelect__label", placeholder:"例）シャネル"
           .sellTitle
             %h3.sellTitle__text
               商品の状態
@@ -61,6 +61,7 @@
                 必須
           .sellCollectionSelect
             = f.collection_select :item_condition_id, ItemCondition.all, :id, :name, {prompt: "選択してください"}, {class: 'sellCollectionSelect__label'}
+            = @item.errors.full_messages_for(:item_condition_id)[0]
             %i.fa.fa-chevron-down
           
         .sellContainer__content
@@ -72,7 +73,8 @@
               %span.require
                 必須
             .sellCollectionSelect
-              = f.collection_select :postage_payer_id, PostagePayer.all, :id, :name, {prompt: '選択してください'}, {class: 'sellCollectionSelect__label'}
+              = f.collection_select :postege_payer_id, PostegePayer.all, :id, :name, {prompt: '選択してください'}, {class: 'sellCollectionSelect__label'}
+              = @item.errors.full_messages_for(:postege_payer_id)[0]
               %i.fa.fa-chevron-down
           .sellTitle
             %h3.sellTitle__text
@@ -80,7 +82,8 @@
               %span.require
                 必須
             .sellCollectionSelect
-              = f.collection_select :postage_type_id, PostageType.all, :id, :name, {prompt:'選択してください'}, {class: 'sellCollectionSelect__label'}
+              = f.collection_select :postage_tyep_id, PostageTyep.all, :id, :name, {prompt:'選択してください'}, {class: 'sellCollectionSelect__label'}
+              = @item.errors.full_messages_for(:postage_tyep_id)[0]
               %i.fa.fa-chevron-down
           .sellTitle
             %h3.sellTitle__text
@@ -89,6 +92,7 @@
                 必須
             .sellCollectionSelect
               = f.collection_select :preparation_day_id, PreparationDay.all, :id, :name, {prompt:'選択してください'}, {class: 'sellCollectionSelect__label'}
+              = @item.errors.full_messages_for(:preparation_day_id)[0]
               %i.fa.fa-chevron-down
 
         .sellContainer__content
@@ -103,8 +107,8 @@
             .sellContainer__content__price__form
               .sellContainer__content__price__form__symbol
                 ¥
-            = form_with model: @item do |form|
-              = form.number_field :price, {placeholder: "0", class: "sellContainer__content__price__form__box", min: 300, max: 9999999 }
+              = f.number_field :price, {placeholder: "0", class: "sellContainer__content__price__form__box", min: 300, max: 9999999 }
+              = @item.errors.full_messages_for(:price)[0]
           .sellContainer__content__commission
             .sellContainer__content__commission__left
               販売手数料 (10%)
@@ -117,11 +121,11 @@
               ー
           
           .submitBtn
-            /.submitBtn__sellBtn
-            = form_with model: @item, class: "submitBtn__sellBtn" do |form|
-              = form.submit "出品する" 
+          
+            = f.submit "出品する" 
           .submitBtn
             = link_to 'もどる', root_path, class: 'submitBtn__returnBtn'
           .attentionCommentBox
             禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物
             などの販売は犯罪であり、法律により処罰される可能性があります。また、出品をもちまして加盟店規約に同意したことになります。
+/・= form_with model: @item, class: "submitBtn__sellBtn" do |form|
