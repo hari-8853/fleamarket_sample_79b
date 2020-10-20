@@ -15,9 +15,9 @@
           .sellContainer__content__box
             %ul.outputBox
               %div#imageInput
-                = f.fields_for :image do |image|
-                  = image.label :src, id: 'image-Input__ladel' do
-                    = image.file_field :src, accept: "image/*", class: "js-file", date: {index: image.index}, style: 'display: none;'
+                = f.fields_for :images do |image|
+                  = image.label :url, id: 'image-Input__ladel' do
+                    = image.file_field :url, accept: "image/*", class: "js-file", date: {index: image.index}, style: 'display: none;'
                     %i.fa.fa-camera
                     = @item.errors.full_messages_for(:images)[0]
         .sellContainer__content

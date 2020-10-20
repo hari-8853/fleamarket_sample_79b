@@ -11,11 +11,12 @@ class ItemsController < ApplicationController
   
   def create
     @item = Item.new(item_params)
+    binding.pry
     if @item.valid?
       @item.save
       redirect_to root_path
     else
-      render :new
+      redirect_to new_item_path
     end
   end
 
@@ -23,7 +24,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :introduction, :category_id, :price, :brand_id, :item_condition_id, :postege_payer_id, :postage_tyep_id, :category_id, :preparation_day_id, image_attributes: [:src])
+    params.require(:item).permit(:name, :introduction, :category_id, :price, :brand_id, :item_condition_id, :postege_payer_id, :postage_tyep_id, :category_id, :preparation_day_id, images_attributes: [:url])
   end
 
 end

@@ -1,7 +1,7 @@
 $(function (){
   //画像用inputを生成する関数
   const buildFileField = (index)=> {
-    const html = `<input accept="image/*" class="js-file" data-index="${index}" style="display: none;", type="file" name="item[images_attributes][${index}][src]" id="images_attributes_${index}_src">`;
+    const html = `<input accept="image/*" class="js-file" data-index="${index}" style="display: none;", type="file" name="item[images_attributes][${index}][url]" id="images_attributes_${index}_url">`;
     return html;
   }
   //プレビュー用imageタグを生成する関数
