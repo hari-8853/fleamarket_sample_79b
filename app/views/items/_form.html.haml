@@ -19,7 +19,9 @@
                   = image.label :url, id: 'image-Input__ladel' do
                     = image.file_field :url, accept: "image/*", class: "js-file", date: {index: image.index}, style: 'display: none;'
                     %i.fa.fa-camera
-                    = @item.errors.full_messages_for(:images)[0]
+            .error-messages
+              %p
+                = @item.errors.full_messages_for(:images)[0]
         .sellContainer__content
           .sellTitle
             %h3.sellTitle__text

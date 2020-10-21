@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2020_10_20_012610) do
     t.bigint "preparation_day_id", null: false
     t.bigint "postage_tyep_id", null: false
     t.bigint "category_id", null: false
-    t.string "trading_status", default: "0", null: false
+    t.integer "trading_status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["brand_id"], name: "index_items_on_brand_id"

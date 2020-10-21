@@ -11,15 +11,19 @@ class ItemsController < ApplicationController
   
   def create
     @item = Item.new(item_params)
-    binding.pry
     if @item.valid?
       @item.save
       redirect_to root_path
     else
-      redirect_to new_item_path
+      @item.images.build
+      render 'new'
+      #redirect_to new_item_path
     end
   end
 
+  def update
+    item.update(trading_status: "売り切れ")
+  end
 
   private
 

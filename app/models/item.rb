@@ -12,5 +12,9 @@ class Item < ApplicationRecord
   validates :introduction,      presence: true, length: {maximum: 1000 }
   validates :price,            numericality: { only_integer:true, greater_than_or_equal_to:300, less_than: 99999999 }
 
+  enum trading_status: {
+    "販売中": 0,
+    "売り切れ": 1
+  }
 
 end

@@ -11,7 +11,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.references :postage_tyep,     null: false
       t.references :category,         null: false, foreign_kye: true
       #enum用のinteger型 enumは列挙型
-      t.string :trading_status,       null: false, default: 0
+      t.integer :trading_status,       null: false, default: 0
 
       # 以下はusersテーブルがない為コメントアウト
       # テーブルが実装され次第migrate:resetをしコメントアウトを外す
