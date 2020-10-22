@@ -2,7 +2,9 @@ ja:
   activerecord:
     attributes:
       item:
+        images: 画像
         name: 名前
+        introduction: 商品説明
         category_id: カテゴリ
         item_condition_id: 商品状態
         postege_payer_id: 配送料

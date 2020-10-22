@@ -92,13 +92,14 @@
       padding: 13px 16px;
       margin-top: 16px;
       height: 126px;
+      width: 590px;
+
     }
     .sellCollectionSelect {
       position: relative;
       .sellCollectionSelect__label {
         @include baseBox;
         font-size: 16px;
-        padding-right: 56px;
         margin: 16px, 0;
 
       }
@@ -132,6 +133,7 @@
           margin: 0;
           line-height: 48px;
           width: calc(100vw - 70vw);
+          text-align: right;
         }
       }
     }
@@ -168,5 +170,13 @@
   }
 }
 
-
-
+.error-messages{
+  color: #ff0211;
+  font-size: 14px;
+  line-height: 1.4em;
+  margin: 0 0 20px 0;
+}
+.prce-error-messages{
+  color: red;
+  text-align:right
+}

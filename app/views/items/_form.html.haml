@@ -29,14 +29,16 @@
               %supan.require
                 必須
           = f.text_field :name, class: "sellContainer__content__name", maxlength: '40', placeholder:"40字まで"
-          = @item.errors.full_messages_for(:name)[0]
+          .error-messages
+            = @item.errors.full_messages_for(:name)[0]
           .sellTitle
             %h3.sellTitle__text
               商品の説明
               %supan.require
                 必須
           = f.text_area :introduction, class: "sellContainer__content__description", rows: '7', maxlength: '1000', placeholder:"商品の説明（必須1000文字以内）"
-
+          %p.error-messages
+            = @item.errors.full_messages_for(:introduction)[0]
         .sellContainer__content
           %h3.sellSubHead
             商品の詳細
@@ -47,8 +49,9 @@
                 必須
           .sellCollectionSelect
             = f.collection_select :category_id, Category.all, :id, :name, {prompt: "選択してください"}, {class: 'sellCollectionSelect__label'}
-            = @item.errors.full_messages_for(:category_id)[0]
             %i.fa.fa-chevron-down
+            %p.error-messages
+              = @item.errors.full_messages_for(:category_id)[0]
           .sellTitle
             %h3.sellTitle__text
               ブランド
@@ -56,6 +59,7 @@
                 任意
           .sellCollectionSelect
             = f.text_field :brand_id, class: "sellCollectionSelect__label", placeholder:"例）シャネル"
+            .error-messages
           .sellTitle
             %h3.sellTitle__text
               商品の状態
@@ -63,9 +67,10 @@
                 必須
           .sellCollectionSelect
             = f.collection_select :item_condition_id, ItemCondition.all, :id, :name, {prompt: "選択してください"}, {class: 'sellCollectionSelect__label'}
-            = @item.errors.full_messages_for(:item_condition_id)[0]
             %i.fa.fa-chevron-down
-          
+          .error-messages
+            = @item.errors.full_messages_for(:item_condition_id)[0]
+            
         .sellContainer__content
           %h3.sellSubHead
             配送について
@@ -76,7 +81,8 @@
                 必須
             .sellCollectionSelect
               = f.collection_select :postege_payer_id, PostegePayer.all, :id, :name, {prompt: '選択してください'}, {class: 'sellCollectionSelect__label'}
-              = @item.errors.full_messages_for(:postege_payer_id)[0]
+              .error-messages
+                = @item.errors.full_messages_for(:postege_payer_id)[0]
               %i.fa.fa-chevron-down
           .sellTitle
             %h3.sellTitle__text
@@ -85,7 +91,8 @@
                 必須
             .sellCollectionSelect
               = f.collection_select :postage_tyep_id, PostageTyep.all, :id, :name, {prompt:'選択してください'}, {class: 'sellCollectionSelect__label'}
-              = @item.errors.full_messages_for(:postage_tyep_id)[0]
+              .error-messages
+                = @item.errors.full_messages_for(:postage_tyep_id)[0]
               %i.fa.fa-chevron-down
           .sellTitle
             %h3.sellTitle__text
@@ -94,7 +101,8 @@
                 必須
             .sellCollectionSelect
               = f.collection_select :preparation_day_id, PreparationDay.all, :id, :name, {prompt:'選択してください'}, {class: 'sellCollectionSelect__label'}
-              = @item.errors.full_messages_for(:preparation_day_id)[0]
+              .error-messages
+                = @item.errors.full_messages_for(:preparation_day_id)[0]
               %i.fa.fa-chevron-down
 
         .sellContainer__content
@@ -110,7 +118,8 @@
               .sellContainer__content__price__form__symbol
                 ¥
               = f.number_field :price, {placeholder: "0", class: "sellContainer__content__price__form__box", min: 300, max: 9999999 }
-              = @item.errors.full_messages_for(:price)[0]
+          .prce-error-messages
+            = @item.errors.full_messages_for(:price)[0]
           .sellContainer__content__commission
             .sellContainer__content__commission__left
               販売手数料 (10%)
@@ -124,7 +133,7 @@
           
           .submitBtn
           
-            = f.submit "出品する" 
+            = f.submit "出品する", class: "submitBtn__sellBtn"
           .submitBtn
             = link_to 'もどる', root_path, class: 'submitBtn__returnBtn'
           .attentionCommentBox
