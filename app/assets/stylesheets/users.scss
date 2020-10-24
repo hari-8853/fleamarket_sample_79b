@@ -13,16 +13,22 @@ span {
 .bold {
   font-weight: bold;
 }
+
 .userMyPage {
-  width: 100vw;
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: center;
+  padding: 24px 0 40px;
+  @include mq('sp') {
+    width: 700px;
+    margin: 24px auto 0;
+  }
   background-color: #f8f8f8;
-  padding-top: 40px;
   &__main {
     padding: 0 0 40px;
     width: 700px;
+    margin: 0 auto;
+    @include mq('sp') {
+      width: 100vw;
+      margin: 40px 0 0;
+    }
     .profileIcon {
       padding: 20px;
       height: 200px;
@@ -60,12 +66,18 @@ span {
     }
     .notificationTodo {
       width: 100%;
+      @include mq('sp') {
+        width: 100vw;
+      }
       &__tabs {
         width: 700px;
+        @include mq('sp') {
+          width: 100vw;
+        }
         .tabMenu {
           display: block;
           float: left;
-          width: 350px;
+          width: 50%;
           height: 76px;
           background-color:#EEE;
           cursor: pointer;
@@ -107,10 +119,13 @@ span {
       }
       &__itemTabs {        
         width: 100%;
+        @include mq('sp') {
+          width: 100vw;
+        }
         .itemTabMenu {
           display: block;
           float: left;
-          width: 350px;
+          width: 50%;
           height: 76px;
           background-color:#EEE;
           cursor: pointer;
@@ -231,13 +246,18 @@ span {
     }
   }
   &__side {
-    margin-right: 40px;
-    padding: 0 0 40px;
+    margin: 40px auto 0;
+    @include mq('tab') {
+      width: 700px;
+    }
+    @include mq('sp') {
+      width: 100vw;
+      margin: 40px 0 0;
+    }
     .myPageNav {
       &__list {
         &__item {
           list-style: none;
-          width: 248px;
           height: 48px;
           background-color: white;
           border-top: 1px solid #eee;
@@ -277,6 +297,21 @@ span {
         }
       }
       
+    }
+  }
+}
+@media screen and (min-width: 1068px) {
+
+  .userMyPage {
+    margin: 40px auto 0;
+    width: 1020px;
+    &__main {
+      float: right;
+      width: 700px;
+    }
+    &__side {
+      width: 280px;
+      margin: 0 40px 0 0;
     }
   }
 }
