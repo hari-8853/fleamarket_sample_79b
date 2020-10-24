@@ -1,0 +1,81 @@
+.payment
+  .payment__content
+    .payment__content__head
+      .payment__content__head__title
+        カード情報の入力
+      
+    .payment__content__form
+      .payment__content__form__container
+        .payment__content__form__container__content
+          .cardNumber
+            .cardNumber__heading
+              カード番号
+              %span.cardNumber__heading__require
+                必須
+            .cardNumber__content
+              .cardNumber__content__box
+                %input.inputBox(type="text" placeholder="半角数字のみ")
+                %img.cardLogos{:alt => "visa card", :src => "https://web-jp-assets.mercdn.net/_next/static/images/visa-91c71914c6ae23d33f896e60bb1e3859.svg"}/
+                %img.cardLogos{:alt => "mastercard", :src => "https://web-jp-assets.mercdn.net/_next/static/images/mastercard-8b5b68c12b7a2fc8619c71f49ef9209b.svg"}/
+                %img.cardLogos{:alt => "saison card", :src => "https://web-jp-assets.mercdn.net/_next/static/images/saison-550107415f39b81fa19e87c96486ba20.svg"}/
+                %img.cardLogos{:alt => "jcb card", :src => "https://web-jp-assets.mercdn.net/_next/static/images/jcb-9ea981d20008c6545aa3afd1b3da9804.svg"}/
+                %img.cardLogos{:alt => "dinersclub card", :src => "https://web-jp-assets.mercdn.net/_next/static/images/american_express-4df44c450653b0209850070ea5cf1264.svg"}/
+                %img.cardLogos{:alt => "express card", :src => "https://web-jp-assets.mercdn.net/_next/static/images/dinersclub-3d52fbb4b39dc998f039571f3314bfc7.svg"}/
+                %img.cardLogos{:alt => "discover card", :src => "https://web-jp-assets.mercdn.net/_next/static/images/discover-879b0b1c9f9a30159f09e9ef492ad349.svg"}/
+          .cardExpirationDate
+            .cardExpirationDate__head
+              有効期限
+              %span.cardExpirationDate__head__require
+                必須
+            .cardExpirationDate__form
+              .styleSelectArea
+                %select.cardExpirationDate__form__expiryMouth(name="expiryMouth")
+                  %option(value="01")01
+                  %option(value="02")02
+                  %option(value="03")03
+                  %option(value="04")04
+                  %option(value="05")05
+                  %option(value="06")06
+                  %option(value="07")07
+                  %option(value="08")08
+                  %option(value="09")09
+                  %option(value="10")10
+                  %option(value="11")11
+                  %option(value="12")12
+                %i.fa.fa-chevron-down
+              .cardExpirationDate__form__text
+                月
+              .styleSelectArea
+                %select.cardExpirationDate__form__expiryYear(name="expiryYear")
+                  %option(value="20")20
+                  %option(value="21")21
+                  %option(value="22")22
+                  %option(value="23")23
+                  %option(value="24")24
+                  %option(value="25")25
+                  %option(value="26")26
+                  %option(value="27")27
+                  %option(value="28")28
+                  %option(value="29")29
+                  %option(value="30")30
+                %i.fa.fa-chevron-down
+              .cardExpirationDate__form__text
+                年
+            .cardExpirationDate__security
+              .cardExpirationDate__security__head
+                セキュリティコード
+                %span.cardExpirationDate__security__head__require
+                  必須
+              .cardExpirationDate__security__content
+                .cardExpirationDate__security__content__box
+                  %input.inputBox(type="text"placeholder="カード背面4桁もしくは3桁の番号") 
+                .cardExpirationDate__security__content__help
+                  = link_to "カード裏面の番号とは？", "#",class: "helpLink"
+                %button{type: "submit", class:"cardExpirationDate__security__content__addNewCardBtn"}
+                  追加する
+          
+                = link_to "もどる", "#", class: "cardExpirationDate__security__content__backBtn"
+
+  = render "users/user-navi"
+= render "home/purchaseBtn"
+
