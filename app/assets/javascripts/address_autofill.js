@@ -1,6 +1,6 @@
 $(function() {
-  return $('#user_postcode').jpostal({
-    postcode: ['#user_postcode'],
+  return $('#user_post_code').jpostal({
+    postcode: ['#user_post_code'],
     address: {
       '#user_prefecture_code': '%3',
       '#user_city': '%4',
