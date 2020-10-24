@@ -7,6 +7,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def credit_register
+  end
+
   def logout
     @user = User.find(params[:id])
   end
