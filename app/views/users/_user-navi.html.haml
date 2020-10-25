@@ -2,7 +2,7 @@
   .myPageNav
     %ul.myPageNav__list
       %li.myPageNav__list__item
-        %a.myPageNav__list__item__link(href="/users/show")
+        = link_to user_path(current_user), method: :get, class: "myPageNav__list__item__link" do
           マイページ
           %i.fa.fa-angle-right
 
@@ -87,7 +87,7 @@
           発送元・お届け先住所変更
           %i.fa.fa-angle-right
       %li.myPageNav__list__item
-        %a.myPageNav__list__item__link(href="#")
+        = link_to credit_register_user_path(current_user), method: :get, class: "myPageNav__list__item__link" do
           支払い方法
           %i.fa.fa-angle-right
       %li.myPageNav__list__item
@@ -103,6 +103,6 @@
           電話番号確認
           %i.fa.fa-angle-right
       %li.myPageNav__list__item
-        %a.myPageNav__list__item__link(href="#")
+        = link_to logout_user_path(current_user), method: :get, class: "myPageNav__list__item__link" do
           ログアウト
           %i.fa.fa-angle-right

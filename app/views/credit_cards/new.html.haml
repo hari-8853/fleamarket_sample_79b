@@ -74,7 +74,7 @@
                 %button{type: "submit", class:"cardExpirationDate__security__content__addNewCardBtn"}
                   追加する
           
-                = link_to "もどる", "#", class: "cardExpirationDate__security__content__backBtn"
+                = link_to "もどる", credit_register_user_path(current_user), class: "cardExpirationDate__security__content__backBtn"
 
   = render "users/user-navi"
 = render "home/purchaseBtn"
