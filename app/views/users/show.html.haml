@@ -5,7 +5,7 @@
         .profileIcon__link__img
           = image_tag 'member_photo_noimage_thumb.png', :size => '60x60'
         %h2.profileIcon__link__userName.bold
-          user名
+          = current_user.nickname
         .profileIcon__link__number
           .profileIcon__link__number__evaluations
             評価 
