@@ -4,7 +4,6 @@ describe Item do
   describe '#create' do
 
     it "イメージが空だと保存できない" do
-      # images = build(:item, images: "")
       @item = build(:item_no_image)
       @item.valid?
       expect(@item.errors[:images]).to include("を入力してください")
