@@ -14,7 +14,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '1d3ccd11b330898634951f0bf4d8bfbb02f5d3678a2a987c58ed25db24118258325c6cb4c63d5db1be9d5263f253b5dd0ff674df228ae02a9960eb5a84e1e031'
+  # config.secret_key = '70facc017880a97051a9b25438c76315d044c08cd8770c4ab4cd53df2139e59590c0ca6d39a58bb9534e8baa1c58c47cefc30e9e536f2dd48230fa0aac9203c5'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -46,7 +46,7 @@ Devise.setup do |config|
   # session. If you need permissions, you should implement that in a before filter.
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
-  # config.authentication_keys = [:email]
+  config.authentication_keys = [:email]
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
@@ -126,7 +126,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '7ca44f62b1e7c18850c16f00cfa0e062e8acdeb976ac4e283de2f08ce69eb72859c1b18db6565509356cb420d7de5211ff6b2c35371b5eae93ef0fd5414e5b28'
+  # config.pepper = 'ca7c52bf6563a7d269cc4e6f7c0b196c171d235275fbc21a0c6cd4a91d841420205e422186729f4b333efd60da75414cbc95c4a9219b6d230eb015a62401c21b'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -178,7 +178,7 @@ Devise.setup do |config|
 
   # ==> Configuration for :validatable
   # Range for password length.
-  config.password_length = 6..128
+  config.password_length = 7..128
 
   # Email regex used to validate email formats. It simply asserts that
   # one (and only one) @ exists in the given string. This is mainly

@@ -1,16 +1,16 @@
 class UsersController < ApplicationController
   def show
-    @user = User.find(params[:id])
+    @user = current_user
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = current_user
   end
 
   def credit_register
   end
 
   def logout
-    @user = User.find(params[:id])
+    @user = current_user
   end
 end

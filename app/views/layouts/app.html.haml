@@ -1,0 +1,11 @@
+%body
+  %header.header
+    .header__bar
+      .header__logo
+        ロゴ
+      .header__title
+        FURIMA
+      = link_to "カテゴリ", root_path, class: "post"
+      = link_to "ブランド", root_path, class: "post"
+
+  = yield
