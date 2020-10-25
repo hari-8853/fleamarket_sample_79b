@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          include JpPrefecture
+
+  has_one :credit_card, dependent: :destroy
+  
   jp_prefecture :prefecture_code
   
   def prefecture_name(prefecture_name)
