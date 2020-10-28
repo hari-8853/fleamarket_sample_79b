@@ -5,23 +5,26 @@
         商品名
 
       .main__content__itembox__body
-        .item_image
+        = link_to image_tag("a001.png", class: "item_image", alt: "サンプル画像")
 
       .main__content__itembox__tyep
-        .item_image 
+        %section.imagebox
+          = link_to image_tag("a002.png", class: "item_images", alt: "サンプル画像")
 
-      %h3.main__content__itembox__price__shipping
-        ¥ 10.000
-        %p (税込み)送料込み
+      .main__content__itembox__price
+        .product_price
+          %p ¥ 10.000
+        .price_tax
+          %p (税込み)送料込み
       .main__content__itembox__description
-        %p
-          あああああああ
+        %p あああああああ
+
       .main__content__itembox__table
         .main__content__itembox__table__collection
           %table
             %tr
               %th 出品者
-              %tb
+              %tb 出品者名
             %tr
               %th カテゴリー
               %tb
