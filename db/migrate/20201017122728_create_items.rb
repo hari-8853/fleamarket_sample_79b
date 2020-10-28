@@ -10,12 +10,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.references :preparation_day,  null: false
       t.references :postage_tyep,     null: false
       t.references :category,         null: false
-      #enum用のinteger型 enumは列挙型
       t.integer :trading_status,       null: false, default: 0
-      # 以下はusersテーブルがない為コメントアウト
-      # テーブルが実装され次第migrate:resetをしコメントアウトを外す
-      #t.references :seller,           null: false, foreign_key: { to_table: :users}
-      #t.references :buyer,            null: false, foreign_key: true
 
       t.timestamps
     end

@@ -1,6 +1,7 @@
 $layout-width-inner: 1180px;
 $breakpoints: (
   "sp": "screen and (max-width: 767px)",
+  "tab": "screen and (max-width: #{$layout-width-inner - 1px})",
   "pc": "screen and (min-width: #{layout-width-inner})",
 );
 
@@ -28,4 +29,15 @@ $breakpoints: (
   align-items: center;
   justify-content: center;
   border-radius: 4px;
+}
+
+@mixin requireBox {
+  background-color: #ff0211;
+  color: #fff;
+  font-size: 12px;
+  width: 32px;
+  padding: 0 4px;
+  margin-left: 8px;
+  height: 16px;
+  line-height: 16px;
 }

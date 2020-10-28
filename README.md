@@ -4,7 +4,7 @@
 ## users table
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|null: false|
+|nickname|string|null: false| -->
 |password|string|null: false|
 |email|string|null: false, unique: true, index:true|
 |first_name|string|null: false|
@@ -16,7 +16,7 @@
 |house_number|string|null: false|
 |building_name|string|
 |phone_number|string|unique: true|
-|birth_date|date|null: false|
+|birth_date|date|null: false| 
 ### Association
 - has_many:seller_items, foreign_key: true
 - has_many:buyer_items, foreign_key: true
@@ -89,6 +89,6 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|ancesty|string|
+|ancesty|string|null: false|
 ### Association
 - has_many :items
