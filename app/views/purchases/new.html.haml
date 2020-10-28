@@ -4,51 +4,54 @@
       .header__logo
         =link_to image_tag('logo.png',class: "header__logo__image"), root_path
   .purchase
-    .purchase__heading
-      .purchase__heading__text
-        購入内容の確認
-    %line
-    .purchase__item
-      .purchase__item__photo
-        写真
-      .purchase__item__info
-        .purchase__item__name
-        商品名
-        .purchase__item__price
-        送料込み（税込み）￥1,100
-    %line
-    .purchase__payment
-      .purchase__payment__text
-        支払金額
-      .purchase__payment__money
-        ￥1,100
-    %line
-    .purchase__credit
-      .purchase__credit__text
-        お支払い方法
-      .purchase__credit__change
-        変更する>
-      .purchase__credit__number
-        クレジットカード
-        %br
-        xxxx-xxxx-xxxx-xxxx
-      .purchase__credit__expiration
-        有効期限 01/2024
-      .purchase__credit__icon
-        アイコン
-    %line
-    .purchase__shipping
-      .purchase__shipping__text
-        配送先
-      .purchase__shipping__change
-        変更する>
-      .purchase__shipping__postCode
-        〒xxx-xxxx
-      .purchase__shipping__address
-        東京都xx区xx町x丁目xx-xxx
-      .purchase__shipping__name
-        降間 小太郎
-    %line
-      .purchase__dicision
-        .purchase__dicision__btn
-          購入する
+    .purchase__box
+      .purchase__heading
+        .purchase__heading__text
+          購入内容の確認
+      %hr
+      .purchase__item
+        .purchase__item__photo
+          = image_tag "a001.png"
+        .purchase__item__info
+          .name
+            商品名
+          .price
+            送料込み（税込み）￥1,100
+      %hr
+      .purchase__payment
+        .purchase__payment__text
+          支払金額
+        .totalMoney
+          ￥1,100
+      %hr
+      .purchase__credit
+        .purchase__credit__box
+          .text
+            お支払い方法
+          .change
+            = link_to "変更する>", "#", class: "linkToChange"
+        .purchase__credit__number
+          クレジットカード
+          %br
+          ************1234
+        .purchase__credit__expiration
+          有効期限 01/2024
+        .purchase__credit__icon
+          = image_tag "creditIcons/credit-card_9.png"
+      %hr
+      .purchase__shipping
+        .purchase__shipping__box
+          .text
+            配送先
+          .change
+            = link_to "変更する>", "#", class: "linkToChange"
+        .purchase__shipping__postCode
+          〒xxx-xxxx
+        .purchase__shipping__address
+          東京都xx区xx町x丁目xx-xxx
+        .purchase__shipping__name
+          降間 小太郎
+      %hr
+        .purchase__dicision
+          .purchase__dicision__btn
+            購入する
