@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   devise_for :users
   resources :home, only: :index
   resources :items, only: :new
-  resources :buyers, only: [:index, :done]
+  resources :buyers, only: :index
+  get 'done', to: 'buyers#done' 
   resources :users, except: [:edit] do
     member do
       get 'edit'
