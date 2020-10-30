@@ -14,8 +14,14 @@ hr {
     margin: 0 auto;
     width: 60%;
   }
+  &__attention {
+    padding: 10px 0;
+    font-size: 26px;
+    background-color: lightgoldenrodyellow;
+    color: gray;
+    text-align: center;
+  }
   &__heading {
-    height: 100px;
     &__text {
       padding: 30px 0;
       font-size: 26px;
