@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'buyers/index'
+  get 'buyers/done'
   root 'home#index'
   devise_for :users
   resources :home, only: :index
