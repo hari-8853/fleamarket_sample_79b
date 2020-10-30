@@ -1,13 +1,4 @@
-class Category < ActiveHash::Base
-  self.data = [
-    {id: 1, name: 'シャネル'},
-    {id: 2, name: 'プラダ'}
-  ]
+class Category < ApplicationRecord
+  has_many : items
+  has_ancestry  
 end
-
-
-#class Category < ApplicationRecord
- # has_many :items
-  #'ancestry'ha
-
-#end
