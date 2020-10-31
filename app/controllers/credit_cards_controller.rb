@@ -8,6 +8,9 @@ class CreditCardsController < ApplicationController
 
   def pay
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    if params['payjp_token'].blank?
+      redirect_to action: "new"
+      
   end
 
   def show
