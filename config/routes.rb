@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'home#index'
   devise_for :users
   resources :home, only: :index
-  resources :items, only: :new
+  resources :items, only: [:index, :new, :create, :update]
   resources :users, except: [:edit] do
     member do
       get 'edit'
