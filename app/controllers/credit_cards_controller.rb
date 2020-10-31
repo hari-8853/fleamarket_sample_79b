@@ -49,5 +49,30 @@ class CreditCardsController < ApplicationController
       redirect_to action: "new"
   end
 
+  def show #Cardのデータpayjpに送り情報を取り出します
+    card = CreditCard.find_by(user_id: current_user.id)
+    if card.blank?
+      redirect_to action: "new" 
+    else
+      Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      @default_card_information = customer.cards.retrieve(card.card_id)
+      @card_brand = @default_card_information.brand
+
+      case @card_brand
+      when "Visa"
+        @card_image = "visa.png"
+      when "JCB"
+        @card_image = "jcb.svg"
+      when "MasterCard"
+        @card_image = "master-card.png"
+      when "American Express"
+        @card_image = "amex.gif"
+      when "Diners Club"
+        @card_image = "dinersclub.gif"
+      when "Discover"
+        @card_image = "discover.gif"
+      end
+    end
   end
 end
