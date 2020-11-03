@@ -1,0 +1,31 @@
+ja:
+  devise:
+    failure:
+      already_authenticated: すでにログインしています。
+      inactive: アカウントが有効化されていません。メールに記載された手順にしたがって、アカウントを有効化してください。
+      invalid: "%{authentication_keys}またはパスワードが違います。"
+      last_attempt: もう一回誤るとアカウントがロックされます。
+      locked: アカウントは凍結されています。
+      not_found_in_database: "%{authentication_keys}またはパスワードが違います。"
+      timeout: セッションがタイムアウトしました。もう一度ログインしてください。
+      unauthenticated: アカウント登録もしくはログインしてください。
+      unconfirmed: メールアドレスの本人確認が必要です。
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        nickname: ニックネーム
+        email: メールアドレス
+        first_name: お名前（氏）
+        family_name: お名前（名）
+        first_name_kana: お名前のフリガナ(氏)
+        family_name_kana: お名前のフリガナ(名)
+        birth_date: 生年月日
+        post_code: 郵便番号
+        prefecture_code: 都道府県
+        city: 市区町村
+        house_number: 番地
+        building_name: マンション・ビル名
+        phone_number: 電話番号
+        password: パスワード

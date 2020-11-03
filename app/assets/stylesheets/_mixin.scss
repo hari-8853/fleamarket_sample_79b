@@ -1,0 +1,44 @@
+$layout-width-inner: 1180px;
+$breakpoints: (
+  "sp": "screen and (max-width: 767px)",
+  "tab": "screen and (max-width: #{$layout-width-inner - 1px})",
+  "pc": "screen and (min-width: #{layout-width-inner})",
+);
+
+@mixin mq($breakpoint: sp) {
+
+  @media #{map-get($breakpoints, $breakpoint)} {
+
+    @content;
+  }
+}
+@mixin baseBox {
+  border: solid 1px #cccccc;
+  border-radius: 4px;
+  height: 48px;
+  width: 620px;
+  margin:16px 0 0 0;
+  display: flex;
+  align-items: center;
+  appearance: none;
+}
+@mixin redBox {
+  background-color: red;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+@mixin requireBox {
+  background-color: #ff0211;
+  color: #fff;
+  font-size: 12px;
+  width: 32px;
+  padding: 0 4px;
+  margin-left: 8px;
+  height: 16px;
+  line-height: 16px;
+}

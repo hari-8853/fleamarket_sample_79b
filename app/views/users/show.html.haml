@@ -1,0 +1,49 @@
+.userMyPage
+  .userMyPage__main
+    .profileIcon
+      %a.profileIcon__link(href="#")
+        .profileIcon__link__img
+          = image_tag 'member_photo_noimage_thumb.png', :size => '60x60'
+        %h2.profileIcon__link__userName.bold
+          = current_user.nickname
+        .profileIcon__link__number
+          .profileIcon__link__number__evaluations
+            評価 
+            %span.bold 0
+          .profileIcon__link__number__listings
+            出品数
+            %span.bold 0
+
+    .notificationTodo
+      .notificationTodo__tabs
+        %input#notice.notificationTodo__tabs__notice{checked: "checked", name: "tabItem", type: "radio"}/
+        %label.tabMenu{:for => "notice"} お知らせ
+        %input#todo.notificationTodo__tabs__todo{name: "tabItem", type: "radio"}/
+        %label.tabMenu{:for => "todo"} やる事リスト
+
+        #tabContainsNotice.tabContains
+          .tabCiontainsDescription__content.notingImage
+            現在お知らせはありません
+          
+        #tabContainsTodo.tabContains
+          .tabContainsDescription__task.notingImage
+            現在やることはありません
+
+    .purchaseItem
+      .purchaseItem__title.bold
+        購入した商品
+      .purchaseItem__itemTabs
+        %input#tradings.purchaseItem__tabs__tradings{checked: "checked", name: "itemTab", type: "radio"}/
+        %label.itemTabMenu{:for => "tradings"} 取引中
+        %input#pastTransactions.purchaseItem__tabs__pastTransaction{name: "itemTab", type: "radio"}/
+        %label.itemTabMenu{:for => "pastTransactions"} 過去の取引
+
+        #tabContainsTradings.tabContains
+          .taabContainsDescription__tarading.notingImage
+            取引中の商品はありません
+
+        #tabContainsPastTransactions.tabContains
+          .taabContainsDescription__pastTransaction.notingImage
+            取引した商品はありません
+  = render "users/user-navi"
+=render "home/purchaseBtn"

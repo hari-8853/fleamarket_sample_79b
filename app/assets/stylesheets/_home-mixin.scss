@@ -1,0 +1,4 @@
+@mixin fontShadow($Color: #ffff) {
+  text-shadow: 0 0 5px rgba(0,0,0,0.4);
+  color: $Color;
+}
