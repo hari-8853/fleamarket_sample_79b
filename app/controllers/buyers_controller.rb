@@ -9,6 +9,24 @@ class BuyersController < ApplicationController
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @default_card_information = customer.cards.retrieve(@card.card_id)
       @user = current_user
+      @card_brand = @default_card_information.brand
+
+      case @card_brand
+      when "Visa"
+        @card_image = "visa.png"
+      when "JCB"
+        @card_image = "jcb.svg"
+      when "MasterCard"
+        @card_image = "master-card.png"
+      when "American Express"
+        @card_image = "amex.gif"
+      when "Diners Club"
+        @card_image = "dinersclub.gif"
+      when "Discover"
+        @card_image = "discover.gif"
+      end
+    end
+  end
   end
 
   def done
