@@ -9,7 +9,6 @@ Rails.application.routes.draw do
     member do
       get 'edit'
       get 'logout'
-      get 'credit_register'
       get 'edit_profiele'
     end
   end
