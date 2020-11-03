@@ -8,7 +8,6 @@ class ItemsController < ApplicationController
     @item.images.build
   end
 
-  
   def create
     @item = Item.new(item_params)
     if @item.valid?
@@ -27,7 +26,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :introduction, :category_id, :price, :brand_id, :item_condition_id, :postege_payer_id, :postage_tyep_id, :preparation_day_id, images_attributes: [:url])
+    params.require(:item).permit(:name, :introduction, :category_id, :price, :brand, :item_condition_id, :postege_payer_id, :postage_tyep_id, :preparation_day_id, images_attributes: [:url])
   end
 
 end
