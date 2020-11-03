@@ -1,3 +1,12 @@
+.payjs-outer {
+                width: 309px;
+                padding: 0 16px;
+                border: 1px solid #ccc;
+                height: 48px;
+                border-radius: 4px;
+                display: flex;
+                align-items: center;
+}
 .payment {
   padding: 0 0 40px;
   @include mq('sp') {
@@ -44,17 +53,7 @@
                 @include requireBox;
               }
             }
-            &__content {
-              &__box {
-                .inputBox {
-                  width: 309px;
-                  padding: 0 16px;
-                  border: 1px solid #ccc;
-                  height: 48px;
-                  border-radius: 4px;
-                }
-              }
-            }
+
           }
           .cardExpirationDate {
             margin-top: 28px;
@@ -129,6 +128,7 @@
                     border: 1px solid #ccc;
                     height: 48px;
                     border-radius: 4px;
+                    line-height: 48px;
                   }
                 }
                 &__help {
@@ -254,4 +254,32 @@
   max-height: 20px;
   max-width: 44px;
   margin: 5px;
+}
+
+.creditShow {
+  &__title {
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+    border-bottom: 1px solid #f8f8f8;
+  }
+}
+.registrationCard {
+  display: flex;
+  justify-content: space-around;
+  padding: 24px 0;
+  align-items: center;
+}
+#charge-form {
+  button {
+    background-color: initial;
+    border: 1px solid rgb(234, 53, 45);
+    border-radius: 4px;
+    color: rgb(234, 53, 45);
+    cursor: pointer;
+    font-weight: bold;
+    padding: 6px 12px;
+    text-decoration: none;
+    font-size: 14px;
+  }
 }
