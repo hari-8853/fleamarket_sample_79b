@@ -6,59 +6,68 @@ justify-content: center;
 align-items: center;
 height: 100px;
 }
-
-
 .parentField {
-  min-height: 100vh;
   display: block;
+  text-align: center;
   justify-content: center;
   align-items: center; 
   color: #333;
   position: relative;
-  height: vh-100px;
+  height: 100%;
+  box-sizing: border-box;
+  font-weight: 500;
   font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+  input{
+    height: 35px;
+    padding: 5px 16px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    line-height: 1;
+    font-size: 16px;
+    margin-top: none;
+    margin-bottom: 30px;
+    width: 300px;
+  }
   .childField {
-    width: 100px;
-    height: vh-100px-100px;
+    width: 100vw;
     position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom :0;
-    margin:  auto;
+    justify-content: center;
+    align-items: center;
     .name {
       display: flex;
+      justify-content: center;
+      .first_name{
+        margin-left: 10px;
+      }
     }
     .nameKana {
       display: flex;
+      justify-content: center;
+      .first_name_kana {
+        margin-left: 10px;
+      }
     }
     .labelRequire {
-      background-color: red;
-      color: white;
+      color:red;
       border-radius: 4px;
       text-align: center;
-      float: left;
       display: block;
-      border: 1px solid red;
       font-size: 12px;
+      margin-right: 25px;
+      margin-top: 0%;
     }
     .label {
-    width: 100%;
-    margin-bottom: 0;
+    width: 100vw;
     }
   }
 }
 
 .submit {
-  display: flex;
-  justify-content: center;
-  align-items: center;  
+  justify-content: center; 
+  text-align: center;
   background-color: #3CCACE;
   font-size: 15px;
   color: white;
   border: none;
-  height: 50px;
-  width: 100px;
-  margin-top: 50px;
-  margin-bottom: 30px;
+  margin-top: 10px;
 }

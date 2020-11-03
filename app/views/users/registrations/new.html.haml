@@ -6,76 +6,66 @@
   .parentField
     .childField
       .nickname
-        = f.label :ユーザー名 
-        %p.labelRequire 必須 
+        = f.label :ユーザー名
+        %p.labelRequire 必須
         = f.text_field :nickname
       .email
         = f.label :メールアドレス
-        %br/
         %p.labelRequire 必須
         = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "必須"
       .password
         = f.label :パスワード
         - if @minimum_password_length
           %em
-            (#{@minimum_password_length} characters minimum)
-        %br/
+            (#{@minimum_password_length} 文字以上)
         %p.labelRequire 必須
         = f.password_field :password, autocomplete: "new-password", placeholder: "必須"
       .password
         = f.label :パスワード（確認用）
-        %br/
         %p.labelRequire 必須
         = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "必須"
+        %br/
       .name
         .family_name
           = f.label :姓
-          %br/
           %p.labelRequire 必須
           = f.text_field :family_name
         .first_name
           = f.label :名
-          %br/
           %p.labelRequire 必須
           = f.text_field :first_name
       .nameKana
         .family_name_kana
           = f.label :姓（かな）
-          %br/
           %p.labelRequire 必須
           = f.text_field :family_name_kana
         .first_name_kana
           = f.label :名（かな）
-          %br/
           %p.labelRequire 必須
           = f.text_field :first_name_kana
       .post_code
         = f.label :郵便番号
-        %br/
         %p.labelRequire 必須
         = f.text_field :post_code
       .city
         = f.label :都道府県
-        %br/
         %p.labelRequire 必須
         = f.text_field :city
       .house_number
-        = f.label :以下住所
-        %br/
+        = f.label :番地以降
         %p.labelRequire 必須
         = f.text_field :house_number
+        %br/
       .building_name
         = f.label :建物名
         %br/
         = f.text_field :building_name
       .phone_number
         = f.label :電話番号
-        %br/
         %p.labelRequire 必須
         = f.text_field :phone_number
       .birth_date
         = f.label :生年月日
-        %br/
         %p.labelRequire 必須
         = f.date_field :birth_date
       .actions
