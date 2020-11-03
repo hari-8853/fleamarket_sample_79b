@@ -1,5 +1,3 @@
-
-
 .header {
   width: 100vw;
   height: 128px;
@@ -101,7 +99,6 @@
         @include baseBox;
         font-size: 16px;
         margin: 16px, 0;
-
       }
       .fa.fa-chevron-down {
         bottom: 0;
@@ -111,6 +108,16 @@
         right: 16px;
         top: 0;
         line-height: 48px;
+      }
+      .second {
+        position: absolute;
+        right: 16px;
+        top: 85px;
+      }
+      .third {
+        position: absolute;
+        right: 16px;
+        bottom: 14px;
       }
     }
     &__price {
