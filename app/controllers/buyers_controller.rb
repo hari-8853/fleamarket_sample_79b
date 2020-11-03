@@ -27,6 +27,15 @@ class BuyersController < ApplicationController
       end
     end
   end
+
+  def pay
+    Payjp.api_key =  ENV["PAYJP_SECRET_KEY"]
+    Payjp::Charge.create(
+      :amount => @item.price,
+      :customer => @card.customer_id,
+      :currency => 'jpy',
+    )
+    redirect_to done_item_buyers_path
   end
 
   def done
