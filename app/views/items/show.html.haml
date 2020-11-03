@@ -13,7 +13,7 @@
 
       .main__content__itembox__price
         .product_price
-          %p ¥ 10.000
+          %p ¥ 10,000
         .price_tax
           %p (税込み)送料込み
       .main__content__itembox__description
@@ -83,13 +83,4 @@
         .itemslist_body__tax
           (税込み)
 
-= link_to "#" do
-  .purchaseBtn
-    %span.purchaseBtn__text 出品する
-    = image_tag "icon_camera.png"
-
-
-
-
-
-
+= render"home/purchaseBtn"
