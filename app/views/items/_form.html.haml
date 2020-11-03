@@ -36,7 +36,7 @@
               商品の説明
               %supan.require
                 必須
-          = f.text_area :introduction, class: 'sellContainer__content__description', rows: '7', maxlength: '1000', placeholder:"商品の説明（必須1000文字以内）"
+          = f.text_area :introduction, class: "sellContainer__content__description", rows: '7', maxlength: '1000', placeholder:"商品の説明（必須1000文字以内）"
           %p.error-messages
             = @item.errors.full_messages_for(:introduction)[0]
         .sellContainer__content
@@ -47,8 +47,8 @@
               カテゴリー
               %span.require
                 必須
-          .sellCollectionSelect#box
-            = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '---'}, {class: 'sellCollectionSelect__label'}
+          .sellCollectionSelect
+            = f.collection_select :category_id, Category.all, :id, :name, {prompt: "選択してください"}, {class: 'sellCollectionSelect__label'}
             %i.fa.fa-chevron-down
             %p.error-messages
               = @item.errors.full_messages_for(:category_id)[0]
