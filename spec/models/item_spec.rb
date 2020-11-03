@@ -48,7 +48,7 @@ describe Item do
     it "販売価格が空だと保存できない" do
       @item = build(:item, price: "")
       @item.valid?
-      expect(@item.errors[:price ]).to include("は数値で入力してください")
+      expect(@item.errors[:price ]).to include("300以上9999999以下で入力してください")
     end
   end
 end

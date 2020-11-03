@@ -61,23 +61,31 @@
       }
     }
     &__box {
-      height: 112px;
       padding: 0 4px;
       margin-top: 8px;
       .outputBox {
+        width: initial;
+        vertical-align: middle;
         place-content: center;
+        display: flex;
         align-items: center;
         background-color: rgb(245, 245, 245);
         border: 1px dashed rgb(204, 204, 204);
         cursor: pointer;
-        display: flex;
-        height: 100%;
-        flex-wrap: wrap;
-        #imageInput {
-          .fa.fa-camera {
-            height: 24px;
-            width: 24px;
-            padding-bottom: 4px;
+        min-height: 112px;
+        width: 620px;
+        img {
+          width: 100px;
+        }
+        .image_box {
+          display: flex;
+          flex-wrap: wrap; 
+          #imageInput {
+            display: flex;
+            align-items: center;
+            .fa.fa-camera {
+              padding-bottom: 4px;
+            }
           }
         }
       }
