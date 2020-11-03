@@ -1,4 +1,5 @@
 class BuyersController < ApplicationController
+  require 'payjp'
   def index
   end
 
