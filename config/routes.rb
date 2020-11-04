@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :home, only: :index
   resources :buyers, only: :index
   get 'done', to: 'buyers#done' 
-  resources :items, only: [:index, :new, :create, :update]
+  resources :items, only: [:index, :new, :show, :create, :update]
   resources :users, except: [:edit] do
     member do
       get 'edit'
