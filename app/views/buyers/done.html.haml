@@ -1,0 +1,31 @@
+.main
+  %section.main__block
+    .header
+      .header__logo
+        =link_to image_tag('logo.png',class: "header__logo__image"), root_path
+  .purchase
+    .purchase__attention
+      %i.far.fa-clock
+      発送をお待ちください
+    .purchase__box
+      .purchase__heading
+        .purchase__heading__text
+          購入が完了しました
+      %hr
+      .purchase__item
+        .purchase__item__photo
+          = image_tag "a001.png"
+        .purchase__item__info
+          .name
+            商品名
+          .price
+            送料込み（税込み）￥1,100
+      %hr
+      .purchase__payment
+        .purchase__payment__text
+          支払金額
+        .totalMoney
+          ￥1,100
+      %hr
+        .purchase__dicision
+          = link_to 'トップページへ戻る', root_path, class: "purchase__dicision__btn"
