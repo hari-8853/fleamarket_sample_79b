@@ -17,8 +17,8 @@
               .image_box
                 %div#imageInput
                   = f.fields_for :images do |image|
-                    = image.label :url, id: 'image-Input__ladel' do
-                      = image.file_field :url, accept: "image/*", class: "js-file", date: {index: image.index}, style: 'display: none;'
+                    = image.label :url, id: 'image-Input__label' do
+                      = image.file_field :url, accept: "image/*", class: "js-file", date:{index: image.index}, style: 'display: none;'
                       %i.fa.fa-camera
             .error-messages
               %p
