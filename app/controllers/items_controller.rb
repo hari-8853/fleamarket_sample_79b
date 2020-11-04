@@ -18,7 +18,10 @@ class ItemsController < ApplicationController
   # 子カテゴリーが選択された後に動くアクション
   def get_category_grandchildren
     @category_grandchildren = Category.find(params[:child_id]).children
+  end
+
   def show
+    
   end
   
   def create
@@ -29,7 +32,7 @@ class ItemsController < ApplicationController
     else
       @item.images.build
       render 'new'
-    end
+    end 
   end
 
   def update
@@ -41,6 +44,4 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :introduction, :category_id, :price, :brand, :item_condition_id, :postege_payer_id, :postage_tyep_id, :preparation_day_id, images_attributes: [:url])
   end
-
 end
-
