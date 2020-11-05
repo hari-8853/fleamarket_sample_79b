@@ -2,8 +2,8 @@ class Item < ApplicationRecord
   has_many :images
   has_many :category
   has_many :brand
-  #belongs_to :seller, class_name: "User"
-  #belongs_to :buyer, class_name: "User"
+  belongs_to :seller, class_name: "User", optional: true, foreign_kye: "seller_id" #optional: trueはnilを許可する
+  belongs_to :buyer, class_name: "User", optional: true, foreign_key: "buyer_id"
   
   accepts_nested_attributes_for :images, allow_destroy: true
 
