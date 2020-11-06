@@ -3,7 +3,8 @@ class BuyersController < ApplicationController
   before_action :set_card, :set_item
   def index
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
-    if params['payjp_token'].blank?
+    card = CreditCard.find_by(user_id: current_user.id)
+    if card.blank?
       redirect_to new_credit_card_path
     else
       customer = Payjp::Customer.retrieve(@card.customer_id)
@@ -35,6 +36,9 @@ class BuyersController < ApplicationController
       :customer => @card.customer_id,
       :currency => 'jpy',
     )
+    @item_buyer= @item
+    @item_buyer.update( buyer_id: current_user.id)
+    @item.update(trading_status: "売り切れ")
     redirect_to done_item_buyers_path
   end
 
