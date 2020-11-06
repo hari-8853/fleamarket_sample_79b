@@ -40,6 +40,7 @@ class CreditCardsController < ApplicationController
   def delete
     card = CreditCard.find_by(user_id: current_user.id)
     if card.blank?
+      redirect_to action: "new"
     else
       Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
@@ -49,7 +50,7 @@ class CreditCardsController < ApplicationController
       redirect_to action: "new"
   end
 
-  def show #Cardのデータpayjpに送り情報を取り出します
+  def show
     card = CreditCard.find_by(user_id: current_user.id)
     if card.blank?
       redirect_to action: "new" 
