@@ -225,6 +225,9 @@
             = link_to "#" do
               %figure.productList--img
                 = image_tag "#{item.images[0].url}"
+                  -if item.buyer_id.present? 
+                  .itemsBoxPhotoSolid
+                    .itemsBoxPhotoSolid__inner SOLD
             .productList--body
               = item.name
               = item.trading_status
