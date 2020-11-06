@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'home#index'
   devise_for :users
   resources :home, only: :index
-  resources :items, only: [:index, :new, :create, :update] do
+  resources :items, only: [:index, :new, :show, :create, :update] do
     resources :buyers, only: [:index] do
       collection do
         get 'done', to: 'buyers#done'
