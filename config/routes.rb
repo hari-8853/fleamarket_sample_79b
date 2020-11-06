@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   resources :buyers, only: :index
   get 'done', to: 'buyers#done' 
   resources :items, only: [:index, :new, :show, :create, :update]
-  resources :comments, only: [:create, :update, :destroy]
+  resources :comments, only: [:create, :update, :destroy] do
+    member do
+      get 'restore'
+    end
+  end
   resources :users, except: [:edit] do
     member do
       get 'edit'
