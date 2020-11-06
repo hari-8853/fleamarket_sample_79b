@@ -55,6 +55,15 @@
         .optional_report
           %i.fa.fa-flag
           %ul 不適切な商品の通報
+
+      .item-buy__btn__box       
+        - if user_signed_in? && current_user.id ==@item.seller_id
+          = link_to "削除する", item_path(@item.id), method: :delete,class:"item-details-delete__btn"
+          = link_to "編集する", "#",class:"item-details-edit__btn"
+        - elsif @item.buyer_id.present?
+          = link_to "売り切れました","#",class:"disabled-button bold"
+        - else
+          = link_to "購入画面に進む",item_buyers_path(@item),class:"item-purchase__btn"
       .main__content__itembox__comment
         .main__content__itembox__comment__form
 
