@@ -2,14 +2,34 @@ Rails.application.routes.draw do
   root 'home#index'
   devise_for :users
   resources :home, only: :index
+  # resources :items, only: [:index, :new, :show, :create, :update] do
+  #   resources :buyers, only: [:index] do
+  #     collection do
+  #       get 'done', to: 'buyers#done'
+  #       post 'pay', to: 'buyers#pay'
+  #     end
+  #   end
+  # end
+  # resources :buyers, only: :index
+  get 'done', to: 'buyers#done'
   resources :items, only: [:index, :new, :show, :create, :update] do
+    #Ajaxで動くアクションのルートを作成
+    collection do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+      get 'search'
+      get 'post_done'
+      get 'delete_done'
+      get 'detail_search'
+      get 'update_done'
+    end
     resources :buyers, only: [:index] do
       collection do
         get 'done', to: 'buyers#done'
         post 'pay', to: 'buyers#pay'
       end
     end
-  end
+  end  
   resources :users, except: [:edit] do
     member do
       get 'edit'
