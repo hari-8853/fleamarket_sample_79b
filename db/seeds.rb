@@ -270,7 +270,8 @@ appliance_smartphone_camera_8 = appliance_smartphone_camera.children.create(name
 appliance_smartphone_camera_8.children.create([{name: "エアコン"},{name: "空気清浄器"},{name: "加湿器"},{name: "扇風機"},{name: "除湿機"},{name: "ファンヒーター"},{name: "電気ヒーター"},
   {name: "オイルヒーター"},{name: "ストーブ"},{name: "ホットカーペット"},{name: "こたつ"},{name: "電気毛布"},{name: "その他"}])
 appliance_smartphone_camera_9 = appliance_smartphone_camera.children.create(name: "生活家電")
-appliance_smartphone_camera_9.children.create([{name: "冷蔵庫"},{name: "洗濯機"},{name: "炊飯器"},{name: "電子レンジ/オーブン"},{name: "調理機器"},{name: "アイロン"},{name: "掃除機"},{name: "エスプレッソマシン"},{name: "コーヒーメーカー"},{name: "衣類乾燥機"},{name: "その他"}])
+appliance_smartphone_camera_9.children.create([{name: "冷蔵庫"},{name: "洗濯機"},{name: "炊飯器"},{name: "電子レンジ/オーブン"},{name: "調理機器"},{name: "アイロン"},{name: "掃除機"},
+  {name: "エスプレッソマシン"},{name: "コーヒーメーカー"},{name: "衣類乾燥機"},{name: "その他"}])
 appliance_smartphone_camera_10 = appliance_smartphone_camera.children.create(name: "その他")
 appliance_smartphone_camera_10.children.create([{name: "その他"}])
 # スポーツ・レジャー
