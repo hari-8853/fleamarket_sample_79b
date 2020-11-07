@@ -32,7 +32,6 @@ $(document).on('turbolinks:load', function(){
     $('#item_category_id').on('change', function(){
       var item_category_id = document.getElementById('item_category_id').value;
       if (item_category_id != "---"){
-        
         $.ajax({
           url: '/items/get_category_children',
           type: 'GET',
@@ -60,7 +59,6 @@ $(document).on('turbolinks:load', function(){
     // 子カテゴリー選択後のイベント
     $('.sellCollectionSelect').on('change', '#children_wrapper', function(){
       var child_category_id = $('#children_wrapper option:selected').data('category');
-      console.log(child_category_id)
       if (child_category_id != "---"){
         $.ajax({
           url: '/items/get_category_grandchildren',
