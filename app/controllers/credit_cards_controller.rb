@@ -31,10 +31,6 @@ class CreditCardsController < ApplicationController
       end
     end
   end
-
-  def show
-
-  end
   
 
   def delete
