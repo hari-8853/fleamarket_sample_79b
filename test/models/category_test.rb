@@ -4,4 +4,5 @@ class CategoryTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
+  has_ancestry
 end

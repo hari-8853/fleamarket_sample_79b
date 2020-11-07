@@ -27,12 +27,11 @@
           .tr
             .th カテゴリー
             .tb 
-              かり
+              = link_to "#{@category_parent.name}","#"
               %br
-              aaa
+              = link_to "#{@category_child.name}","#"
               %br
-              aaa
-
+              = link_to "#{@category_grandchild.name}","#"
           .tr
             .th ブランド
             .tb 
