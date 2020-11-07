@@ -12,8 +12,7 @@
   .loginChildField {
     text-align: center;
     width: 100vw;
-    height: vh-100px-100px;
-    position: absolute;
+    // height: vh-100px-100px;
     top: 50px;
     margin:  auto;
     .field {
@@ -58,11 +57,12 @@
   border: none;
   margin-top: 10px;
   height: 35px;
-  width: 300px;
+  width: 250px;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .forgotYourPassword {
-  position: absolute;
   width: 100%;
   display: block;
   text-align: center;
