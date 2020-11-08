@@ -51,7 +51,7 @@ class ItemsController < ApplicationController
       :introduction,
       :category_id,
       :price,
-      :brand,
+      :brand_id,
       :item_condition_id,
       :postege_payer_id,
       :postage_tyep_id,
