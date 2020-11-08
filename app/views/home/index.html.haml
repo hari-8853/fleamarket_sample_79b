@@ -83,71 +83,22 @@
         = link_to "#" do
           %h3.title 新規投稿商品
       .productLists
-        .productList
-          = link_to "#" do
-            %figure.productList--img
-              = image_tag "a001.png"
-            .productList--body
-              %h3.name  product1
-              %div.details
-                %ul
-                  %li 3000円
-                  %li
-                    %i.fa.fa-star.LikeIcon 0
-                %p  (税込)
+        - @items.each do |item|
+          .productList
+            = link_to "#" do
+              %figure.productList--img
+                = image_tag "#{item.images[0].url}"
+              .productList--body
+                %h3.name
+                  = item.name 
+                .details
+                  %ul
+                    %li 
+                      = "#{item.price}円"
+                    %li
+                      %i.fa.fa-star.LikeIcon 0
+                  %p  (税込)
 
-        .productList
-          = link_to "#" do
-            %figure.productList--img
-              = image_tag "a002.png"
-            .productList--body
-              %h3.name  product2
-              %div.details
-                %ul
-                  %li 3000円
-                  %li
-                    %i.fa.fa-star.LikeIcon 0
-                %p  (税込)
-
-        .productList
-          = link_to "#" do
-            %figure.productList--img
-              = image_tag "a003.png"
-            .productList--body
-              %h3.name  product3
-              %div.details
-                %ul
-                  %li 3000円
-                  %li
-                    %i.fa.fa-star.LikeIcon 0
-                %p  (税込)
-
-        .productList
-          = link_to "#" do
-            %figure.productList--img
-              = image_tag "a004.png"
-            .productList--body
-              %h3.name  product4
-              .details
-                %ul
-                  %li 2000円
-                  %li
-                    %i.fa.fa-star.LikeIcon 0
-                %p  (税込)
-
-        .productList
-          = link_to "#" do
-            %figure.productList--img
-              = image_tag "a005.png"
-            .productList--body
-              %h3.name  product5
-              .details
-                %ul
-                  %li 1000円
-                  %li
-                    %i.fa.fa-star.LikeIcon 0
-                %p  (税込)
-                
   %section.pickupContainer
     %h2.head ピックアップブランド
     .productBox
