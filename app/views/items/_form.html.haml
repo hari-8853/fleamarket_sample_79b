@@ -48,8 +48,8 @@
               カテゴリー
               %span.require
                 必須
-          .sellCollectionSelect
-            = f.collection_select :category_id, Category.all, :id, :name, {prompt: "選択してください"}, {class: 'sellCollectionSelect__label'}
+          .sellCollectionSelect#box
+            = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '---'}, {class: 'sellCollectionSelect__label'}
             %i.fa.fa-chevron-down
             %p.error-messages
               = @item.errors.full_messages_for(:category_id)[0]
@@ -59,8 +59,7 @@
               %supan.require.arbitrary
                 任意
           .sellCollectionSelect
-            = f.text_field :brand_id, class: "sellCollectionSelect__label", placeholder:"例）シャネル"
-            .error-messages
+            = f.collection_select :brand_id, Brand.all, :id, :name, {prompt: "選択してください"}, {class: "sellCollectionSelect__label"}
           .sellTitle
             %h3.sellTitle__text
               商品の状態
