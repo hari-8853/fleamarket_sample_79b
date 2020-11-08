@@ -167,6 +167,20 @@
                   %li
                     %i.fa.fa-star.LikeIcon 0
                 %p  (税込)
+      
+        -@items.each do |item|
+          .productList
+            = link_to item_path(item) do
+              %figure.productList--img
+                = image_tag "#{item.images[0].url}"
+                  -if item.buyer_id.present? 
+                  .itemsBoxPhotoSolid
+                    .itemsBoxPhotoSolid__inner SOLD
+            .productList--body
+              = item.name
+              = item.trading_status
+
+
 
 %aside.appBanner
   .unit

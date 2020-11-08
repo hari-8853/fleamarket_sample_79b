@@ -1,19 +1,19 @@
-require 'rails_helper'
+# require 'rails_helper'
 
-RSpec.describe "Buyers", type: :request do
+# RSpec.describe "Buyers", type: :request do
 
-  describe "GET /index" do
-    it "returns http success" do
-      get "/buyers/index"
-      expect(response).to have_http_status(:success)
-    end
-  end
+#   describe "GET /index" do
+#     it "returns http success" do
+#       get "/buyers/index"
+#       expect(response).to have_http_status(:success)
+#     end
+#   end
 
-  describe "GET /done" do
-    it "returns http success" do
-      get "/buyers/done"
-      expect(response).to have_http_status(:success)
-    end
-  end
+#   describe "GET /done" do
+#     it "returns http success" do
+#       get "/buyers/done"
+#       expect(response).to have_http_status(:success)
+#     end
+#   end
 
-end
+# end
