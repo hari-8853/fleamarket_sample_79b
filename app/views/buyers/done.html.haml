@@ -14,18 +14,21 @@
       %hr
       .purchase__item
         .purchase__item__photo
-          = image_tag "a001.png"
+          = image_tag "#{@item.images[0].url}", size: '64x64', class: 'buydetails-contet__image'
         .purchase__item__info
           .name
-            商品名
+            = @item.name
           .price
-            送料込み（税込み）￥1,100
+            %span 
+              = "¥#{@item.price.to_s}"
+              %span
+                .shipping-free (税込) 送料込み
       %hr
       .purchase__payment
         .purchase__payment__text
           支払金額
         .totalMoney
-          ￥1,100
+          = "¥#{@item.price.to_s}"
       %hr
         .purchase__dicision
           = link_to 'トップページへ戻る', root_path, class: "purchase__dicision__btn"

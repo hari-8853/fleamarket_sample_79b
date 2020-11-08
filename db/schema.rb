@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_18_071546) do
+ActiveRecord::Schema.define(version: 2020_11_04_122306) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -27,9 +27,11 @@ ActiveRecord::Schema.define(version: 2020_10_18_071546) do
   end
 
   create_table "credit_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "customer_id", null: false
+    t.string "card_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id", null: false
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -53,12 +55,16 @@ ActiveRecord::Schema.define(version: 2020_10_18_071546) do
     t.integer "trading_status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "seller_id", null: false
+    t.bigint "buyer_id"
     t.index ["brand_id"], name: "index_items_on_brand_id"
+    t.index ["buyer_id"], name: "index_items_on_buyer_id"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["item_condition_id"], name: "index_items_on_item_condition_id"
     t.index ["postage_tyep_id"], name: "index_items_on_postage_tyep_id"
     t.index ["postege_payer_id"], name: "index_items_on_postege_payer_id"
     t.index ["preparation_day_id"], name: "index_items_on_preparation_day_id"
+    t.index ["seller_id"], name: "index_items_on_seller_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
