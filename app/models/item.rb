@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
   has_many :images
-  has_many :category
-  has_many :brand
+  belongs_to :category
+  belongs_to :brand
   #belongs_to :seller, class_name: "User"
   #belongs_to :buyer, class_name: "User"
   
