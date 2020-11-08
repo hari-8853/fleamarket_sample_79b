@@ -40,6 +40,7 @@ group :development, :test do
   gem 'capistrano-rails-console'
   gem 'rspec-rails', '~> 4.0.0.beta2'
   gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 group :development do
@@ -68,6 +69,8 @@ gem 'devise'
 gem 'jp_prefecture'
 gem 'haml-rails'
 gem 'font-awesome-sass'
+gem 'payjp'
+gem 'dotenv'
 gem 'active_hash'
 gem 'carrierwave'
 gem 'mini_magick'
