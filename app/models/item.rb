@@ -1,10 +1,10 @@
 class Item < ApplicationRecord
   has_many :images
   belongs_to :category
-  has_many :brand
+  # has_many :brand
   belongs_to :seller, class_name: "User"
   belongs_to :buyer, class_name: "User", optional: true
-  
+
   accepts_nested_attributes_for :images, allow_destroy: true
 
   validates :category_id, :item_condition_id, :postage_tyep_id, :preparation_day_id, :postege_payer_id, :images, presence: true
