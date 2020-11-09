@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'home#index'
   devise_for :users
   resources :home, only: :index
+
   get 'done', to: 'buyers#done'
   resources :items, only: [:index, :new, :show, :create, :update] do
     #Ajaxで動くアクションのルートを作成
@@ -35,6 +36,12 @@ Rails.application.routes.draw do
       post 'delete', to: 'credit_cards#delete'
     end
   end
+  resources :comments, only: [:create, :update, :destroy] do
+    member do
+      get 'restore'
+    end
+  end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
   
