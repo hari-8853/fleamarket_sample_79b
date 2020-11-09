@@ -1,7 +1,8 @@
 class CommentsController < ApplicationController
 
   before_action :set_comment, only: [:update, :destory, :restory]
-  before_action :check_user, only: [:update, :destory, :restory]
+  before_action :set_comment, only: [:update, :destory, :restore]
+  before_action :check_user, only: [:update, :destory, :restore]
 
 
   def create
@@ -29,11 +30,6 @@ class CommentsController < ApplicationController
     @comment.destroy
     redirect_to item_path(@comment.item.id)
   end
-
-
-end
-
-
 
 private
   def comment_params
