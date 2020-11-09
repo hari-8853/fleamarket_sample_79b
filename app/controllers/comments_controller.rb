@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 
-  before_action :set_comment, only: [:update, :destory, :restore]
-  before_action :check_user, only: [:update, :destory, :restore]
+  before_action :set_comment, only: [:update, :destroy, :restore]
+  before_action :check_user, only: [:update, :destroy, :restore]
 
 
   def create
