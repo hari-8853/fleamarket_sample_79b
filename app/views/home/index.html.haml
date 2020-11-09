@@ -80,24 +80,25 @@
         = link_to "#" do
           %h3.title 新規投稿商品
       .productLists
-        - @items.each do |item|
-          .productList
-            = link_to item_path(item) do
-              %figure.productList--img
-                = image_tag "#{item.images[0].url}"
-                  -if item.buyer_id.present? 
-                  .itemsBoxPhotoSolid
-                    .itemsBoxPhotoSolid__inner SOLD
-              .productList--body
-                %h3.name
-                  = item.name 
-                .details
-                  %ul
-                    %li 
-                      = "#{item.price}円"
-                    %li
-                      %i.fa.fa-star.LikeIcon 0
-                  %p  (税込)
+        - @items.each.with_index(1) do |item, x|
+          - if x <= 10
+            .productList
+              = link_to item_path(item) do
+                %figure.productList--img
+                  = image_tag "#{item.images[0].url}"
+                    -if item.buyer_id.present? 
+                    .itemsBoxPhotoSolid
+                      .itemsBoxPhotoSolid__inner SOLD
+                .productList--body
+                  %h3.name
+                    = item.name 
+                  .details
+                    %ul
+                      %li 
+                        = "#{item.price}円"
+                      %li
+                        %i.fa.fa-star.LikeIcon 0
+                    %p  (税込)
 
   %section.pickupContainer
     %h2.head ピックアップブランド
