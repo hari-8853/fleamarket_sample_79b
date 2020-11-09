@@ -27,9 +27,28 @@ class ItemsController < ApplicationController
     @category_child = Category.find(@category_id).parent
     @category_grandchild = Category.find(@category_id)
 
-    @comment = Comment.new
-    @commentALL = Comment.where(item_id:params[:id])
     @user = User.find(@item.seller_id)
+    # @images = Image
+    @images = @item.images
+    # @image = Image.find(@images)
+
+    @brand_id = @item.brand_id
+    @brand = Brand.find(@brand_id)
+
+    @condition_id = @item.item_condition_id
+    @condition = ItemCondition.find(@condition_id)
+
+    @postege_payer_id = @item.postege_payer_id
+    @postege_payer = PostegePayer.find(@postege_payer_id)
+
+    @postage_tyep_id = @item.postage_tyep_id
+    @postage_tyep = PostageTyep.find(@postage_tyep_id)
+
+    @preparation_day_id = @item.preparation_day_id
+    @preparation_day = PreparationDay.find(@preparation_day_id)
+
+    # @comment = Comment.new
+    # @commentALL = Comment.where(item_id:params[:id])
   end
   
   def create
