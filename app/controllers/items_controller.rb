@@ -26,6 +26,10 @@ class ItemsController < ApplicationController
     @category_parent = Category.find(@category_id).parent.parent
     @category_child = Category.find(@category_id).parent
     @category_grandchild = Category.find(@category_id)
+
+    @comment = Comment.new
+    @commentALL = Comment.where(item_id:params[:id])
+    @user = User.find(@item.seller_id)
   end
   
   def create
