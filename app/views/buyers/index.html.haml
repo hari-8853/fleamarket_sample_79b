@@ -11,33 +11,40 @@
       %hr
       .purchase__item
         .purchase__item__photo
-          = image_tag "a001.png"
+          = image_tag "#{@item.images[0].url}", size: '64x64', class: 'buydetails-contet__image'
         .purchase__item__info
           .name
-            商品名 
+            = @item.name
           .price
-            送料込み（税込み）￥1,100
+            %span.shipping-free (税込) 送料込み
+            = "¥#{@item.price.to_s}"
       %hr
       .purchase__payment
         .purchase__payment__text
           支払金額
         .totalMoney
-          ￥1,100
+          = "¥#{@item.price.to_s}"
+          %span.shipping-free (税込) 送料込み
       %hr
       .purchase__credit
         .purchase__credit__box
           .text
             お支払い方法
           .change
-            = link_to "変更する>", "#", class: "linkToChange"
+            = link_to "変更する>", "/credit_cards/new", class: "linkToChange"
         .purchase__credit__number
           クレジットカード
           %br
-          ************1234
-        .purchase__credit__expiration
-          有効期限 01/2024
-        .purchase__credit__icon
-          = image_tag "creditIcons/credit-card_9.png"
+        - if @default_card_information.blank?
+          %br /
+        - else
+          = "**** **** **** " + "#{@default_card_information.last4}"
+          %br
+          - exp_month = @default_card_information.exp_month.to_s
+          - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+          = "有効期限 " + exp_month + " / " + exp_year
+          %br
+          = image_tag "#{@card_image}", class: "cardLogo"
       %hr
       .purchase__shipping
         .purchase__shipping__box
@@ -46,12 +53,17 @@
           .change
             = link_to "変更する>", "#", class: "linkToChange"
         .purchase__shipping__postCode
-          〒xxx-xxxx
+          = @user.post_code
         .purchase__shipping__address
-          東京都xx区xx町x丁目xx-xxx
+          = @user.city
+          = @user.house_number
+          = @user.building_name
+          
         .purchase__shipping__name
-          降間 小太郎
+          = @user.first_name
+          = @user.family_name
+
       %hr
-        .purchase__dicision
-          .purchase__dicision__btn
-            購入する
+        = form_tag(action: :pay, method: :post) do
+          .purchase__dicision
+            %button.purchase__dicision__btn{type:"submit"} 購入する
