@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  has_many :images
+  has_many :images, dependent: :destroy
   belongs_to :category
   has_many :brand
   belongs_to :seller, class_name: "User"

@@ -39,8 +39,14 @@ class ItemsController < ApplicationController
     end 
   end
 
+  def edit
+    @item = Item.find(params[:id])
+  end
+
   def update
+    item = Item.find(params[:id])
     item.update(trading_status: "売り切れ")
+    item.update(item_params)
   end
 
   private
