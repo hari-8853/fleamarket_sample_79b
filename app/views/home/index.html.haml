@@ -80,71 +80,26 @@
         = link_to "#" do
           %h3.title 新規投稿商品
       .productLists
-        .productList
-          = link_to "#" do
-            %figure.productList--img
-              = image_tag "a001.png"
-            .productList--body
-              %h3.name  product1
-              %div.details
-                %ul
-                  %li 3000円
-                  %li
-                    %i.fa.fa-star.LikeIcon 0
-                %p  (税込)
+        - @items.each.with_index(1) do |item, x|
+          - if x <= 10
+            .productList
+              = link_to item_path(item) do
+                %figure.productList--img
+                  = image_tag "#{item.images[0].url}"
+                    -if item.buyer_id.present? 
+                    .itemsBoxPhotoSolid
+                      .itemsBoxPhotoSolid__inner SOLD
+                .productList--body
+                  %h3.name
+                    = item.name 
+                  .details
+                    %ul
+                      %li 
+                        = "#{item.price}円"
+                      %li
+                        %i.fa.fa-star.LikeIcon 0
+                    %p  (税込)
 
-        .productList
-          = link_to "#" do
-            %figure.productList--img
-              = image_tag "a002.png"
-            .productList--body
-              %h3.name  product2
-              %div.details
-                %ul
-                  %li 3000円
-                  %li
-                    %i.fa.fa-star.LikeIcon 0
-                %p  (税込)
-
-        .productList
-          = link_to "#" do
-            %figure.productList--img
-              = image_tag "a003.png"
-            .productList--body
-              %h3.name  product3
-              %div.details
-                %ul
-                  %li 3000円
-                  %li
-                    %i.fa.fa-star.LikeIcon 0
-                %p  (税込)
-
-        .productList
-          = link_to "#" do
-            %figure.productList--img
-              = image_tag "a004.png"
-            .productList--body
-              %h3.name  product4
-              .details
-                %ul
-                  %li 2000円
-                  %li
-                    %i.fa.fa-star.LikeIcon 0
-                %p  (税込)
-
-        .productList
-          = link_to "#" do
-            %figure.productList--img
-              = image_tag "a005.png"
-            .productList--body
-              %h3.name  product5
-              .details
-                %ul
-                  %li 1000円
-                  %li
-                    %i.fa.fa-star.LikeIcon 0
-                %p  (税込)
-                
   %section.pickupContainer
     %h2.head ピックアップブランド
     .productBox
@@ -216,20 +171,6 @@
                   %li
                     %i.fa.fa-star.LikeIcon 0
                 %p  (税込)
-      
-        -@items.each do |item|
-          .productList
-            = link_to item_path(item) do
-              %figure.productList--img
-                = image_tag "#{item.images[0].url}"
-                  -if item.buyer_id.present? 
-                  .itemsBoxPhotoSolid
-                    .itemsBoxPhotoSolid__inner SOLD
-            .productList--body
-              = item.name
-              = item.trading_status
-
-
 
 %aside.appBanner
   .unit
@@ -239,4 +180,4 @@
       = link_to image_tag("Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg", class: "applebadge", alt: "サンプル画像")
       = link_to image_tag("google-play-badge.png", class: "googlebadge", alt: "サンプル画像")
 
-=render "home/purchaseBtn"
+= render"home/purchaseBtn"
