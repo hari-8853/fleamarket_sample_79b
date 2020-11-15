@@ -45,6 +45,13 @@ class ItemsController < ApplicationController
     item.update(trading_status: "売り切れ")
   end
 
+  def destroy
+    item = Item.find(params[:id])
+    if item.seller_id == current_user.id
+      item.destroy
+    end
+  end
+
   private
 
   def item_params
