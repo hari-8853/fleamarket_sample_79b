@@ -1,9 +1,16 @@
 class Item < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
   has_many :images
-  has_many :category
-  has_many :brand
-  #belongs_to :seller, class_name: "User"
-  #belongs_to :buyer, class_name: "User"
+  belongs_to :category
+
+  belongs_to_active_hash :brand
+  belongs_to_active_hash :item_condition
+  belongs_to_active_hash :postege_payer
+  belongs_to_active_hash :postage_tyep
+  belongs_to_active_hash :preparation_day
+
+  belongs_to :seller, class_name: "User"
+  belongs_to :buyer, class_name: "User", optional: true
   
   accepts_nested_attributes_for :images, allow_destroy: true
 
