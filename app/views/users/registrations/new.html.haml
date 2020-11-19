@@ -25,12 +25,12 @@
         .family_name
           = f.label :姓
           %p.labelRequire 必須
-          = f.text_field :family_name, autofocus: true, autocomplete: "family_name", placeholder: "例)太郎"
+          = f.text_field :family_name, autofocus: true, autocomplete: "family_name", placeholder: "例)山田"
 
         .first_name
           = f.label :名
-          %p.labelRequire 須必
-          = f.text_field :first_name, autofocus: true, autocomplete: "first_name", placeholder: "例)山田"
+          %p.labelRequire 必須
+          = f.text_field :first_name, autofocus: true, autocomplete: "first_name", placeholder: "例)太郎"
       .nameKana
         .family_name_kana
           = f.label :姓（カナ）
