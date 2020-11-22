@@ -4,7 +4,8 @@
       .header__logo
         =link_to image_tag('logo.png',class: "header__logo__image"), root_path
     .sellContainer
-      = form_with model: @item,url: items_path,local: true do |f|
+      = form_with model: @item,local: true do |f|
+        -# 出品画像全体の大枠
         .sellContainer__content
           .sellTitle
             %h3.sellTitle__text
@@ -12,17 +13,40 @@
               %span.require
                 必須
             %p 最大10枚までアップロードできます
+          -# 画像が入る場所
           .sellContainer__content__box
             .outputBox
               .image_box
+                - if @item.persisted?
+                  - @item.images.each_with_index do |image, i|
+                    - if image.persisted?
+                      .image_box#mini{data: {index: i}}
+                        = image_tag image.url.url,data: { index: i }, width: "100", height: '100'
+                        %button.js-remove
+                          削除する
                 %div#imageInput
+                  %label#image-Input__label
+                    %i.fa.fa-camera
                   = f.fields_for :images do |image|
-                    = image.label :url, id: 'image-Input__label' do
-                      = image.file_field :url, accept: "image/*", class: "js-file", date:{index: image.index}, style: 'display: none;'
-                      %i.fa.fa-camera
-            .error-messages
-              %p
+                    = image.file_field :url, accept: "image/*", class: "js-file", data:{index: image.index}, style: 'display: none;'
+                   
+                    -# 削除ボタンを作りたい
+                    -# %span.js-remove 削除
+                
+                    -# 既存の画像のパス
+                    -# = image.object.url
+            
+                    - if image.object.persisted?
+                      = image.check_box :_destroy, include_hidden: false, class: 'hidden-destroy'
+                  -# - if @item.persisted?
+                  -#   .js-file{"data-index" => "#{@item.images.count}"}
+                  -#     = file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]", class: 'js-file'
+                  -#     .js-remove 削除  
+      
+
+                %p
                 = @item.errors.full_messages_for(:images)[0]
+
         .sellContainer__content
           .sellTitle
             %h3.sellTitle__text
