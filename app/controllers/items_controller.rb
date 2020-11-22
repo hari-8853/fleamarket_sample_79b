@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+ 
   def index
     @items = Item.includes(:image).order('created_at DESC')
   end
@@ -38,15 +39,24 @@ class ItemsController < ApplicationController
       render 'new'
     end 
   end
-
+  
   def edit
+    # binding.pry
     @item = Item.find(params[:id])
+    @item.images.build
   end
 
   def update
-    item = Item.find(params[:id])
-    item.update(trading_status: "売り切れ")
-    item.update(item_params)
+    
+    @item = Item.find(params[:id])
+    # item.update(trading_status: "売り切れ")
+    # item.update(item_params)
+    # binding.pry
+    if @item.update(item_params)
+      redirect_to item_path
+    else
+      redirect_to edit_item_path
+    end
   end
 
   private
@@ -62,6 +72,13 @@ class ItemsController < ApplicationController
       :postege_payer_id,
       :postage_tyep_id,
       :preparation_day_id,
-      images_attributes: [:url]).merge(seller_id: current_user.id)
+      images_attributes: [:url,:id, :_destroy]).merge(seller_id: current_user.id)
   end
+
+  # def set_category
+  #   @category_parent_array = []
+  #     Category.where(ancestry: nil).each do |parent|
+  #       @category_parent_array << parent
+      # end
+  # end
 end
