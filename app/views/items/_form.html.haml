@@ -16,7 +16,7 @@
           -# 画像が入る場所
           .sellContainer__content__box
             .outputBox
-              .image_box
+              .image_box#preview
                 - if @item.persisted?
                   - @item.images.each_with_index do |image, i|
                     - if image.persisted?
@@ -24,11 +24,13 @@
                         = image_tag image.url.url,data: { index: i }, width: "100", height: '100'
                         %button.js-remove
                           削除する
+                        -# .js-remove#js-remove
+                        -#   削除する
                 %div#imageInput
                   %label#image-Input__label
                     %i.fa.fa-camera
                   = f.fields_for :images do |image|
-                    = image.file_field :url, accept: "image/*", class: "js-file", data:{index: image.index}, style: 'display: none;'
+                    = image.file_field :url, accept: "image/*", class: "js-file", data:{index: image.index}
                    
                     -# 削除ボタンを作りたい
                     -# %span.js-remove 削除
@@ -74,6 +76,9 @@
                 必須
           .sellCollectionSelect#box
             = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '---'}, {class: 'sellCollectionSelect__label'}
+            -if @item.persisted?
+              = f.collection_select :category_id, @item.category.parent.siblings, :id, :name, {prompt: '---',selected:@item.category_id}, {class: 'sellCollectionSelect__label'}
+              = f.collection_select :category_id, @item.category.siblings, :id, :name, {prompt: '---',selected:@item.category_id}, {class: 'sellCollectionSelect__label'}
             %i.fa.fa-chevron-down
             %p.error-messages
               = @item.errors.full_messages_for(:category_id)[0]
