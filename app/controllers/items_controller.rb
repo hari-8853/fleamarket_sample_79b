@@ -48,7 +48,7 @@ class ItemsController < ApplicationController
     # binding.pry
     @item = Item.find(params[:id])
     @item.images.build
-    @category_id = @item.category_id
+    # @category_id = @item.category_id
     
   end
 

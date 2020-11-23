@@ -27,7 +27,7 @@ $(document).on('turbolinks:load', function(){
                               <i class='fas fa-chevron-down third' ></i> `;
       $('#box').append(grandchildSelectHtml);
     }
-
+    
     // 親カテゴリー選択後のイベント
     $('#item_category_id').on('change', function(){
       var item_category_id = document.getElementById('item_category_id').value;
@@ -45,6 +45,7 @@ $(document).on('turbolinks:load', function(){
           children.forEach(function(child){
             insertHTML += appendOption(child);
           });
+          // console.log(insertHTML);
           appendChildrenBox(insertHTML);
         })
         .fail(function(){
