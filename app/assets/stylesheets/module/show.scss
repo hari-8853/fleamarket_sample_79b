@@ -17,11 +17,8 @@
         font-size: 24px;
       }
       &__body {
-        margin: 16px 0 0;
-        width: 560px;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
+        width: 400px;
+        margin: auto;
       }
 
         .item_image {
@@ -33,11 +30,10 @@
         &__type {
           display: flex;
           justify-content: center;
+          margin-top: 10px;
         }
         .imagebox {
-          width: initial;
-          vertical-align: middle;
-          width: 25%;
+          display: flex;
         }
   
         .item_images {
@@ -143,6 +139,7 @@
           align-items: center;
           justify-content: center;
           color: white;
+          text-decoration: none;
         }
       }
     }

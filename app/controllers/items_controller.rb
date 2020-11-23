@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   # before_action :set_category, only: [:new, :create, :edit, :update]
   # before_action :set_item, only: [:show, :edit, :update]
  
+  before_action :authenticate_user!, except: [:show]
   def index
     @items = Item.includes(:image).order('created_at DESC')
   end
@@ -30,6 +31,8 @@ class ItemsController < ApplicationController
     @category_parent = Category.find(@category_id).parent.parent
     @category_child = Category.find(@category_id).parent
     @category_grandchild = Category.find(@category_id)
+    @user = User.find(@item.seller_id)
+    @images = @item.images
   end
   
   
@@ -62,6 +65,13 @@ class ItemsController < ApplicationController
       redirect_to item_path
     else
       redirect_to edit_item_path
+    end
+  end
+
+  def destroy
+    item = Item.find(params[:id])
+    if item.seller_id == current_user.id
+      item.destroy
     end
   end
 

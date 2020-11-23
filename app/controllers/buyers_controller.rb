@@ -1,5 +1,6 @@
 class BuyersController < ApplicationController
   require 'payjp'
+  before_action :authenticate_user!
   before_action :set_card, :set_item
   def index
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]

@@ -1,3 +1,89 @@
+h2 {
+color:#3CCACE;
+font-size: 30px;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100px;
+text-align: center;
+}
+.parentField {
+  display: block;
+  text-align: center;
+  justify-content: center;
+  align-items: center; 
+  color: #333;
+  height: 100%;
+  box-sizing: border-box;
+  font-weight: 500;
+  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+  input{
+    height: 35px;
+    padding: 5px 16px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    line-height: 1;
+    font-size: 16px;
+    margin-top: none;
+    margin-bottom: 30px;
+    width: 300px;
+  }
+  .childField {
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    .name {
+      display: flex;
+      justify-content: center;
+      .first_name{
+        margin-left: 10px;
+      }
+    }
+    .nameKana {
+      display: flex;
+      justify-content: center;
+      .first_name_kana {
+        margin-left: 10px;
+      }
+    }
+    .labelRequire {
+      color:red;
+      border-radius: 4px;
+      text-align: center;
+      display: block;
+      font-size: 12px;
+      margin-right: 25px;
+      margin-top: 0%;
+    }
+    .label {
+    width: 100vw;
+    }
+  }
+}
+
+.actions {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.submit {
+  display: block;
+  justify-content: center;
+  background-color: #3CCACE;
+  font-size: 15px;
+  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+  color: white;
+  border: none;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  border-radius: 4px;
+  height: 35px;
+  width: 250px;
+  cursor: pointer;
+}
+
 .notingImage {
   background-image: url(mini_logo_blue.png) ;
   background-position: center 40px;
