@@ -58,7 +58,7 @@ class ItemsController < ApplicationController
   def update
     
     @item = Item.find(params[:id])
-    # item.update(trading_status: "売り切れ")
+    item.update(trading_status: "売り切れ")
     # item.update(item_params)
     # binding.pry
     if @item.update(item_params)
