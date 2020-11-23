@@ -4,7 +4,7 @@
        const html = `<div data-index="${index}" class="js-file_group">
                      <input accept="image/*" class="js-file" 
                      data-index="${index}"
-                     style="display: none;", 
+                     style="display: none;",
                      type="file" 
                      name="item[images_attributes][${index}][url]"
                      id="item_images_attributes_${index}url"></div>`;
@@ -35,12 +35,6 @@
       // 取得したインプットタグをクリックするメソッド
       file_field.trigger("click");
     })
-  
-      // // 削除ボタンがクリックされた時に発火するイベント
-      // $('.js-remove').on("click", function() { 
-      //   // 当該画像を削除するメソッド 
-      //   $('').remove();
-      // })
 
      $('#imageInput').on('change', '.js-file', function(e) {
        // ファイルが選択されたときfileIndexの最初の数字をindexとして持ったフォームを新しく作成する。
@@ -61,11 +55,12 @@
         const new_image = buildImg(targetIndex, blobUrl)
         const new_image_wrapper = `<div class="new_image_wrapper">${new_image}</div>`;
         
-       $('.image_box#mini').append(new_image_wrapper);
+       $('#preview').append(new_image_wrapper);
        
       
        // fileIndexの先頭の数字を使ってinputを作る
-       $('.image_box#mini:last').append(buildFileField(fileIndex[0]));
+      //  $('.image_box#mini:last').append(buildFileField(fileIndex[0]));
+       $('#imageInput').append(buildFileField(fileIndex[0]));
        fileIndex.shift();
       
        // 末尾の数に1足した数を追加する
