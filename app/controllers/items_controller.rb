@@ -26,10 +26,12 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @category_id = @item.category_id
+    # binding.pry
     @category_parent = Category.find(@category_id).parent.parent
     @category_child = Category.find(@category_id).parent
     @category_grandchild = Category.find(@category_id)
   end
+  
   
   def create
     @item = Item.new(item_params)
@@ -46,6 +48,8 @@ class ItemsController < ApplicationController
     # binding.pry
     @item = Item.find(params[:id])
     @item.images.build
+    @category_id = @item.category_id
+    
   end
 
   def update

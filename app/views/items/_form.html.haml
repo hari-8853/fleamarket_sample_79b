@@ -30,7 +30,7 @@
                   %label#image-Input__label
                     %i.fa.fa-camera
                   = f.fields_for :images do |image|
-                    = image.file_field :url, accept: "image/*", class: "js-file", data:{index: image.index}
+                    = image.file_field :url, accept: "image/*", class: "js-file", data:{index: image.index}, style: 'display: none;'
                    
                     -# 削除ボタンを作りたい
                     -# %span.js-remove 削除
@@ -75,10 +75,12 @@
               %span.require
                 必須
           .sellCollectionSelect#box
-            = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '---'}, {class: 'sellCollectionSelect__label'}
-            -if @item.persisted?
-              = f.collection_select :category_id, @item.category.parent.siblings, :id, :name, {prompt: '---',selected:@item.category_id}, {class: 'sellCollectionSelect__label'}
-              = f.collection_select :category_id, @item.category.siblings, :id, :name, {prompt: '---',selected:@item.category_id}, {class: 'sellCollectionSelect__label'}
+            -unless @item.persisted?
+              = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '---'}, {class: 'sellCollectionSelect__label'}
+            - else
+              = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '---',selected:@item.category.root_id}, {class: 'sellCollectionSelect__label'}
+              = f.collection_select :category, @item.category.parent.siblings, :id, :name, {prompt: '---',selected:@item.category.parent_id}, {class: 'sellCollectionSelect__label', id: 'children_wrapper'}
+              = f.collection_select :category, @item.category.siblings, :id, :name, {prompt: '---',selected:@item.category_id}, {class: 'sellCollectionSelect__label', id: 'grandchildren_wrapper'}
             %i.fa.fa-chevron-down
             %p.error-messages
               = @item.errors.full_messages_for(:category_id)[0]
