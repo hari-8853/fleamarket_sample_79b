@@ -20,32 +20,17 @@
                 - if @item.persisted?
                   - @item.images.each_with_index do |image, i|
                     - if image.persisted?
-                      .image_box#mini{data: {index: i}}
+                      .new_image_wrapper#mini{data: {index: i}}
                         = image_tag image.url.url,data: { index: i }, width: "100", height: '100'
                         %button.js-remove
                           削除する
-                        -# .js-remove#js-remove
-                        -#   削除する
                 %div#imageInput
                   %label#image-Input__label
                     %i.fa.fa-camera
                   = f.fields_for :images do |image|
                     = image.file_field :url, accept: "image/*", class: "js-file", data:{index: image.index}, style: 'display: none;'
-                   
-                    -# 削除ボタンを作りたい
-                    -# %span.js-remove 削除
-                
-                    -# 既存の画像のパス
-                    -# = image.object.url
-            
                     - if image.object.persisted?
                       = image.check_box :_destroy, include_hidden: false, class: 'hidden-destroy'
-                  -# - if @item.persisted?
-                  -#   .js-file{"data-index" => "#{@item.images.count}"}
-                  -#     = file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]", class: 'js-file'
-                  -#     .js-remove 削除  
-      
-
                 %p
                 = @item.errors.full_messages_for(:images)[0]
 
@@ -79,22 +64,22 @@
               = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '---'}, {class: 'sellCollectionSelect__label'}
             - else
               = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '---',selected:@item.category.root_id}, {class: 'sellCollectionSelect__label'}
-              = f.collection_select :category, @item.category.parent.siblings, :id, :name, {prompt: '---',selected:@item.category.parent_id}, {class: 'sellCollectionSelect__label', id: 'children_wrapper'}
-              = f.collection_select :category, @item.category.siblings, :id, :name, {prompt: '---',selected:@item.category_id}, {class: 'sellCollectionSelect__label', id: 'grandchildren_wrapper'}
+              = f.collection_select :category_id, @item.category.parent.siblings, :id, :name, {prompt: '---',selected:@item.category.parent_id}, {class: 'sellCollectionSelect__label', id: 'children_wrapper'}
+              = f.collection_select :category_id, @item.category.siblings, :id, :name, {prompt: '---',selected:@item.category_id}, {class: 'sellCollectionSelect__label', id: 'grandchildren_wrapper'}
             %i.fa.fa-chevron-down
             %p.error-messages
               = @item.errors.full_messages_for(:category_id)[0]
           .sellTitle
             %h3.sellTitle__text
               ブランド
-              %supan.require.arbitrary
+              %span.require.arbitrary
                 任意
           .sellCollectionSelect
             = f.collection_select :brand_id, Brand.all, :id, :name, {prompt: "選択してください"}, {class: "sellCollectionSelect__label"}
           .sellTitle
             %h3.sellTitle__text
               商品の状態
-              %supan.require
+              %span.require
                 必須
           .sellCollectionSelect
             = f.collection_select :item_condition_id, ItemCondition.all, :id, :name, {prompt: "選択してください"}, {class: 'sellCollectionSelect__label'}
@@ -143,7 +128,7 @@
             .sellContainer__content__price__title
               %h3.sellTitle__text
                 販売価格
-                %supan.require
+                %span.require
                   必須
             .sellContainer__content__price__form
               .sellContainer__content__price__form__symbol

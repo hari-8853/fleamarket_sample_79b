@@ -29,6 +29,7 @@
 
       //カメラボタンがクリックされた時に発火するメソッド
     $('#image-Input__label').on("click",function() { 
+      console.log(1)
       // インプットタグの「最後」を取得する
       const file_field = $('.js-file:last');
       console.log(file_field)
@@ -89,4 +90,3 @@
          if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
        });
      });
-  

@@ -1,5 +1,4 @@
 class ItemsController < ApplicationController
-  # before_action :set_category, only: [:new, :create, :edit, :update]
   # before_action :set_item, only: [:show, :edit, :update]
  
   before_action :authenticate_user!, except: [:show]
@@ -27,7 +26,6 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @category_id = @item.category_id
-    # binding.pry
     @category_parent = Category.find(@category_id).parent.parent
     @category_child = Category.find(@category_id).parent
     @category_grandchild = Category.find(@category_id)
@@ -37,6 +35,7 @@ class ItemsController < ApplicationController
   
   
   def create
+    
     @item = Item.new(item_params)
     if @item.valid?
       @item.save
@@ -48,19 +47,14 @@ class ItemsController < ApplicationController
   end
   
   def edit
-    # binding.pry
     @item = Item.find(params[:id])
     @item.images.build
-    # @category_id = @item.category_id
-    
   end
 
   def update
-    
     @item = Item.find(params[:id])
-    item.update(trading_status: "売り切れ")
-    # item.update(item_params)
-    # binding.pry
+    @item.update(trading_status: "売り切れ")
+
     if @item.update(item_params)
       redirect_to item_path
     else
@@ -90,13 +84,6 @@ class ItemsController < ApplicationController
       :preparation_day_id,
       images_attributes: [:url,:id, :_destroy]).merge(seller_id: current_user.id)
   end
-
-  # def set_category
-  #   @category_parent_array = []
-  #     Category.where(ancestry: nil).each do |parent|
-  #       @category_parent_array << parent
-  #     end
-  # end
 
   # def set_item
   #   @item = Item.find(params[:id])
