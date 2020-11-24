@@ -35,8 +35,9 @@
               = link_to "#{@category_grandchild.name}","#"
           .tr
             .th ブランド
-            .tb 
-              = @item.brand.name
+            .tb
+              - if @item.brand 
+                = @item.brand.name
           .tr
             .th 商品状態
             .tb 

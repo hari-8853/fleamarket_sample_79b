@@ -15,7 +15,7 @@ ja:
       user: ユーザー
     attributes:
       user:
-        nickname: ニックネーム
+        nickname: ユーザー名
         email: メールアドレス
         first_name: お名前（氏）
         family_name: お名前（名）
