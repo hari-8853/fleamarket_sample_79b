@@ -1,6 +1,5 @@
 class ItemsController < ApplicationController
-  # before_action :set_item, only: [:show, :edit, :update]
- 
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show]
   def index
     @items = Item.includes(:image).order('created_at DESC')
@@ -24,7 +23,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
     @category_id = @item.category_id
     @category_parent = Category.find(@category_id).parent.parent
     @category_child = Category.find(@category_id).parent
@@ -47,12 +45,10 @@ class ItemsController < ApplicationController
   end
   
   def edit
-    @item = Item.find(params[:id])
     @item.images.build
   end
 
   def update
-    @item = Item.find(params[:id])
     @item.update(trading_status: "売り切れ")
 
     if @item.update(item_params)
@@ -63,7 +59,6 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    item = Item.find(params[:id])
     if item.seller_id == current_user.id
       item.destroy
     end
@@ -85,7 +80,7 @@ class ItemsController < ApplicationController
       images_attributes: [:url,:id, :_destroy]).merge(seller_id: current_user.id)
   end
 
-  # def set_item
-  #   @item = Item.find(params[:id])
-  # end
+  def set_item
+    @item = Item.find(params[:id])
+  end
 end
