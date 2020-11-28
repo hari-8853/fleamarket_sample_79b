@@ -29,10 +29,8 @@
 
       //カメラボタンがクリックされた時に発火するメソッド
     $('#image-Input__label').on("click",function() { 
-      console.log(1)
       // インプットタグの「最後」を取得する
       const file_field = $('.js-file:last');
-      console.log(file_field)
       // 取得したインプットタグをクリックするメソッド
       file_field.trigger("click");
     })
@@ -71,16 +69,13 @@
   
      $('.image_box').on('click', '.js-remove', function() {
        const targetIndex = $(this).parent().data('index');
-       console.log(targetIndex);
-       console.log("ok");
        // 該当indexを振られているチェックボックスを取得する
        const hiddenCheck = $(`#item_images_attributes_${targetIndex}__destroy`);
-       console.log(hiddenCheck);
 
        // もしチェックボックスが存在すればチェックを入れる
        $(`#item_images_attributes_${targetIndex}__destroy`).prop("checked", true);
 
-       //  ここで削除が実行されるが、いろんなところに干渉している気がする
+        // ここで削除が実行
          $(this).parent().remove();
         
          // この辺りに、ファイルを選択も消す動作を入れたい
