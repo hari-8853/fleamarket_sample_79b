@@ -66,6 +66,7 @@
         vertical-align: middle;
         place-content: center;
         display: flex;
+        
         align-items: center;
         background-color: rgb(245, 245, 245);
         border: 1px dashed rgb(204, 204, 204);
@@ -77,12 +78,31 @@
         }
         .image_box {
           display: flex;
-          flex-wrap: wrap; 
+          flex-wrap: wrap;
+          .image_box#box {
+            display: flex;
+            flex-wrap: wrap;
+          }
+          .js-remove {
+            width:100px;
+            font-size:12px;
+            color:#FFFFFF;
+            text-align:center;
+            display:block;
+            padding:5px 0 5px;
+            background:#6BCBF6;
+            border-radius: 20px;
+            border: solid 2px #ffffff;
+          } 
           #imageInput {
             display: flex;
             align-items: center;
             .fa.fa-camera {
               padding-bottom: 4px;
+            }
+            .js-remove {
+              display: flex;
+              float: left;
             }
           }
         }

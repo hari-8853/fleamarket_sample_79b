@@ -9,8 +9,7 @@ class CreditCardsController < ApplicationController
   def pay
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     if params['payjp_token'].blank?
-      redirect_to action: "new"
-      
+      redirect_to action: "new"      
     else
       customer = Payjp::Customer.create(
         description: '登録テスト',
@@ -23,7 +22,6 @@ class CreditCardsController < ApplicationController
         customer_id: customer.id,
         card_id: customer.default_card
       )
-      
       if @card.save
         redirect_to action: "show"
       else

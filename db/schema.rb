@@ -20,10 +20,9 @@ ActiveRecord::Schema.define(version: 2020_11_04_122306) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
+    t.string "ancestry"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "ancestry"
-    t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
   create_table "credit_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -46,7 +45,7 @@ ActiveRecord::Schema.define(version: 2020_11_04_122306) do
     t.string "name", null: false
     t.text "introduction", null: false
     t.integer "price", null: false
-    t.bigint "brand_id"
+    t.bigint "brand_id", null: false
     t.bigint "item_condition_id", null: false
     t.bigint "postege_payer_id", null: false
     t.bigint "preparation_day_id", null: false
@@ -65,6 +64,11 @@ ActiveRecord::Schema.define(version: 2020_11_04_122306) do
     t.index ["postege_payer_id"], name: "index_items_on_postege_payer_id"
     t.index ["preparation_day_id"], name: "index_items_on_preparation_day_id"
     t.index ["seller_id"], name: "index_items_on_seller_id"
+  end
+
+  create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -91,5 +95,4 @@ ActiveRecord::Schema.define(version: 2020_11_04_122306) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "items", "brands"
 end
