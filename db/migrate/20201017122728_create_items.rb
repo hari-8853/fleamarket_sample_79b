@@ -4,12 +4,12 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.string :name,                 null: false
       t.text :introduction,           null: false
       t.integer :price,               null: false
-      t.references :brand,            null: false
-      t.references :item_condition,   null: false
-      t.references :postege_payer,    null: false
-      t.references :preparation_day,  null: false
-      t.references :postage_tyep,     null: false
-      t.references :category,         null: false
+      t.integer :brand_id
+      t.integer :item_condition_id,   null: false
+      t.integer :postege_payer_id,    null: false
+      t.integer :preparation_day_id,  null: false
+      t.integer :postage_tyep_id,     null: false
+      t.integer :category_id,         null: false
       t.integer :trading_status,      null: false, default: 0
 
       t.timestamps
