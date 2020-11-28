@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :home, only: :index
   get 'done', to: 'buyers#done'
-  resources :items, only: [:index, :new, :show, :create, :edit, :update, :destroy] do
+  resources :items
     #Ajaxで動くアクションのルートを作成
     collection do
       get 'get_category_children', defaults: { format: 'json' }
