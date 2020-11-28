@@ -42,3 +42,14 @@ $breakpoints: (
   height: 16px;
   line-height: 16px;
 }
+
+@mixin userForm {
+  height: 35px;
+  padding: 5px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  line-height: 1;
+  font-size: 16px;
+  margin-top: none;
+  margin-bottom: 30px;
+}
