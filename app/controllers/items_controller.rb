@@ -59,8 +59,8 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    if item.seller_id == current_user.id
-      item.destroy
+    if @item.seller_id == current_user.id
+      @item.destroy
     end
   end
 

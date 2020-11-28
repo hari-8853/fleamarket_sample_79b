@@ -1,4 +1,4 @@
-h2 {
+.headText {
 color:#3CCACE;
 font-size: 30px;
 display: flex;
@@ -18,14 +18,7 @@ text-align: center;
   font-weight: 500;
   font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
   input{
-    height: 35px;
-    padding: 5px 16px 8px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    line-height: 1;
-    font-size: 16px;
-    margin-top: none;
-    margin-bottom: 30px;
+    @include userForm;
     width: 300px;
   }
   .childField {
@@ -35,17 +28,54 @@ text-align: center;
     .name {
       display: flex;
       justify-content: center;
+      .family_name {
+        &__textBox {
+          width: 150px;
+        }
+      }
       .first_name{
         margin-left: 10px;
+        &__textBox {
+          width: 150px;
+        }
       }
     }
     .nameKana {
       display: flex;
       justify-content: center;
+      .family_name_kana {
+        &__textBox {
+          width: 150px;
+        }
+      }
       .first_name_kana {
         margin-left: 10px;
+        &__textBox {
+          width: 150px;
+        }
       }
     }
+    .prefecture {
+      &__selectBox {
+        @include userForm;
+        width: 300px;
+      }
+    }
+    #user_birth_date_1i {
+      @include userForm;
+      width: 100px;
+    }
+    
+    #user_birth_date_2i {
+      @include userForm;
+      width: 100px;
+    } 
+
+    #user_birth_date_3i {
+      @include userForm;
+      width: 100px;
+    } 
+
     .labelRequire {
       color:red;
       border-radius: 4px;
