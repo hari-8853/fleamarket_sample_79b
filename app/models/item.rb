@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  has_many :images
+  has_many :images, dependent: :destroy
   belongs_to :category
 
   belongs_to_active_hash :brand
@@ -9,10 +9,11 @@ class Item < ApplicationRecord
   belongs_to_active_hash :postage_tyep
   belongs_to_active_hash :preparation_day
 
+
   belongs_to :seller, class_name: "User"
   belongs_to :buyer, class_name: "User", optional: true
   
-  accepts_nested_attributes_for :images, allow_destroy: true
+  accepts_nested_attributes_for :images, allow_destroy: true, update_only: true
 
   validates :category_id, :item_condition_id, :postage_tyep_id, :preparation_day_id, :postege_payer_id, :images, presence: true
   validates :name,             presence: true, length: {maximum: 40 }

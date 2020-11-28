@@ -35,8 +35,9 @@
               = link_to "#{@category_grandchild.name}","#"
           .tr
             .th ブランド
-            .tb 
-              = @item.brand.name
+            .tb
+              - if @item.brand 
+                = @item.brand.name
           .tr
             .th 商品状態
             .tb 
@@ -65,7 +66,7 @@
       .item-buy__btn__box
         - if user_signed_in? && current_user.id ==@item.seller_id
           = link_to "削除する", item_path(@item.id), method: :delete,class:"item-details-delete__btn"
-          = link_to "編集する", "#",class:"item-details-edit__btn"
+          = link_to "編集する", edit_item_path(@item.id), method: :get,class:"item-details-edit__btn"
         - elsif @item.buyer_id.present?
           = link_to "売り切れました","#",class:"disabled-button bold"
         - else
