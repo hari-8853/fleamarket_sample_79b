@@ -10,7 +10,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.references :preparation_day,  null: false
       t.references :postage_tyep,     null: false
       t.references :category,         null: false
-      t.integer :trading_status,       null: false, default: 0
+      t.integer :trading_status,      null: false, default: 0
 
       t.timestamps
     end

@@ -4,7 +4,7 @@
 ## users table
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|null: false| -->
+|nickname|string|null: false|
 |password|string|null: false|
 |email|string|null: false, unique: true, index:true|
 |first_name|string|null: false|
@@ -16,7 +16,8 @@
 |house_number|string|null: false|
 |building_name|string|
 |phone_number|string|unique: true|
-|birth_date|date|null: false| 
+|birth_date|date|null: false|
+|prefecture_code|integer|
 ### Association
 - has_many:seller_items, foreign_key: true
 - has_many:buyer_items, foreign_key: true
@@ -36,7 +37,7 @@
 ## credit_cards table
 |Column|Type|Options|
 |------|----|-------|
-|user|references|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
 |customer_id|string|null: false|
 |card_id|string|null: false|
 ### Association
@@ -49,15 +50,15 @@
 |name|string|null: false|
 |introduction|text|null: false|
 |price|integer|null: false|
-|brand|references|foreign_key: true|
+|brand|references|null: false|
 |item_condition|references|null: false|
 |postage_payer|references|null: false|
 |preparation_day|references|null: false|
 |postage_type|references|null: false|
-|category|references|null: false, foreign_key: true|
-|trading_status|enum|null: false|
-|seller|references|null: false, foreign_key: true|
-|buyer|references|null: false, foreign_key: true|
+|category|references|null: false|
+|trading_status|integer|null: false|
+|seller|references|null: false|
+|buyer|references|
 ### Association
 - has_many :item_images, dependent: :destroy
 - belongs_to :category
@@ -77,11 +78,11 @@
 ### Association
 - has_many :items
 
-## items_imgs table
+## images table
 |Column|Type|Options|
 |------|----|-------|
 |url|string|null: false|
-|item|references|null: false, foreign_key: true|
+|item|references|null: false|
 ### Association
 - belongs_to :item
 
@@ -89,6 +90,6 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|ancesty|string|null: false|
+|ancesty|string|
 ### Association
 - has_many :items
