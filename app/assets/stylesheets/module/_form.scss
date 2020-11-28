@@ -78,7 +78,6 @@
         }
         .image_box {
           display: flex;
-          // flex-direction: column;
           flex-wrap: wrap;
           .image_box#box {
             display: flex;
@@ -97,7 +96,6 @@
           } 
           #imageInput {
             display: flex;
-            // flex-direction: column;
             align-items: center;
             .fa.fa-camera {
               padding-bottom: 4px;
