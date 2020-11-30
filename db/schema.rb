@@ -12,12 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2020_11_04_122306) do
 
-  create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "ancestry"
@@ -45,24 +39,18 @@ ActiveRecord::Schema.define(version: 2020_11_04_122306) do
     t.string "name", null: false
     t.text "introduction", null: false
     t.integer "price", null: false
-    t.bigint "brand_id", null: false
-    t.bigint "item_condition_id", null: false
-    t.bigint "postege_payer_id", null: false
-    t.bigint "preparation_day_id", null: false
-    t.bigint "postage_tyep_id", null: false
-    t.bigint "category_id", null: false
+    t.integer "brand_id"
+    t.integer "item_condition_id", null: false
+    t.integer "postege_payer_id", null: false
+    t.integer "preparation_day_id", null: false
+    t.integer "postage_tyep_id", null: false
+    t.integer "category_id", null: false
     t.integer "trading_status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "seller_id", null: false
     t.bigint "buyer_id"
-    t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
-    t.index ["category_id"], name: "index_items_on_category_id"
-    t.index ["item_condition_id"], name: "index_items_on_item_condition_id"
-    t.index ["postage_tyep_id"], name: "index_items_on_postage_tyep_id"
-    t.index ["postege_payer_id"], name: "index_items_on_postege_payer_id"
-    t.index ["preparation_day_id"], name: "index_items_on_preparation_day_id"
     t.index ["seller_id"], name: "index_items_on_seller_id"
   end
 
