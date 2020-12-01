@@ -50,12 +50,12 @@
 |name|string|null: false|
 |introduction|text|null: false|
 |price|integer|null: false|
-|brand|references|null: false|
-|item_condition|references|null: false|
-|postage_payer|references|null: false|
-|preparation_day|references|null: false|
-|postage_type|references|null: false|
-|category|references|null: false|
+|brand|integer|
+|item_condition|integer|null: false|
+|postage_payer|integer|null: false|
+|preparation_day|integer|null: false|
+|postage_type|integer|null: false|
+|category|integer|null: false|
 |trading_status|integer|null: false|
 |seller|references|null: false|
 |buyer|references|
