@@ -60,8 +60,8 @@
           = @user.building_name
           
         .purchase__shipping__name
-          = @user.first_name
           = @user.family_name
+          = @user.first_name
 
       %hr
         = form_tag(action: :pay, method: :post) do
