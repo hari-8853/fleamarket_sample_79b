@@ -59,16 +59,16 @@
               カテゴリー
               %span.require
                 必須
+          %p.error-messages
+            = @item.errors.full_messages_for(:category_id)[0]
           .sellCollectionSelect#box
             -unless @item.persisted?
-              = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '---'}, {class: 'sellCollectionSelect__label'}
+              = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {include_blank: "---"}, {class: 'sellCollectionSelect__label'}
             - else
-              = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '---',selected:@item.category.root_id}, {class: 'sellCollectionSelect__label'}
-              = f.collection_select :category_id, @item.category.parent.siblings, :id, :name, {prompt: '---',selected:@item.category.parent_id}, {class: 'sellCollectionSelect__label', id: 'children_wrapper'}
-              = f.collection_select :category_id, @item.category.siblings, :id, :name, {prompt: '---',selected:@item.category_id}, {class: 'sellCollectionSelect__label', id: 'grandchildren_wrapper'}
+              = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {include_blank: "---",selected:@item.category.root_id}, {class: 'sellCollectionSelect__label'}
+              = f.collection_select :category_id, @item.category.parent.siblings, :id, :name, {include_blank: "---",selected:@item.category.parent_id}, {class: 'sellCollectionSelect__label', id: 'children_wrapper'}
+              = f.collection_select :category_id, @item.category.siblings, :id, :name, {include_blank: "---",selected:@item.category_id}, {class: 'sellCollectionSelect__label', id: 'grandchildren_wrapper'}
             %i.fa.fa-chevron-down
-            %p.error-messages
-              = @item.errors.full_messages_for(:category_id)[0]
           .sellTitle
             %h3.sellTitle__text
               ブランド

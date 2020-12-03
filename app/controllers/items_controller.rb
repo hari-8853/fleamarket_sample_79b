@@ -47,7 +47,7 @@ class ItemsController < ApplicationController
   def edit
     @item.images.build
   end
-
+  
   def update
     @item.update(trading_status: "売り切れ")
 
