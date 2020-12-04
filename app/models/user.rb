@@ -23,12 +23,12 @@ class User < ApplicationRecord
     message: "は、全角で入力して下さい"
     }
   validates :first_name_kana, presence: true, format: {
-    with: /\A[ぁ-んァ-ヶー－]+\z/,
-    message: "は、全角カナで入力して下さい"
+    with: /\A[\p{katakana}\p{blank}ー－]+\z/,
+    message: 'は全角カナで入力して下さい。'
    }
   validates :family_name_kana, presence: true, format: {
-    with: /\A[ぁ-んァ-ヶー－]+\z/,
-    message: "は、全角カナで入力して下さい"
+    with: /\A[\p{katakana}\p{blank}ー－]+\z/,
+    message: 'は全角カナで入力して下さい。'
     }
   validates :birth_date, presence: true
   validates :post_code, presence: true
